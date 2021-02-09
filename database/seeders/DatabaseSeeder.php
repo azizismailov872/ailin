@@ -14,5 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        //\App\Models\AdminUser\AdminUser::factory(20)->create();
+      /* \App\Models\AudioBook\Genre\AudioBookGenre::factory(25)->create();*/
+       //$this->call('Database\Seeders\AdminUser\AdminUserSeeder');
     }
 }
