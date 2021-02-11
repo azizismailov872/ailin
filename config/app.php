@@ -1,5 +1,7 @@
 <?php
 
+use App\Facades\ResponseFormat;
+
 return [
 
     /*
@@ -226,7 +228,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'ResponseFormat' => \App\Facades\ResponseFormat::class,
+        'AdminUserService' => \App\Facades\AdminUserService::class,
+        'GenresService' => \App\Facades\GenresService::class,
     ],
 
 ];
