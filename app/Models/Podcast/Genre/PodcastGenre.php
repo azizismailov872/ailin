@@ -12,4 +12,9 @@ class PodcastGenre extends Model
     protected $table = 'podcast_genres';
 
     protected $guarded = [];
+
+    public function trans()
+    {
+    	return $this->hasOne('App\Models\Podcast\Genre\PodcastGenreTrans','genre_id');
+    }
 }

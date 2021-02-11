@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class PodcastGenreTrans extends Model
 {
     use HasFactory;
+
+    protected $table = 'podcast_genre_trans';
+
+    protected $guarded = [];
+
+
 }

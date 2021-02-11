@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class TrainingGenreTrans extends Model
 {
     use HasFactory;
+
+    protected $table = 'training_genre_trans';
+
+    protected $guarded = [];
 }

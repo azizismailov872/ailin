@@ -9,7 +9,12 @@ class TrainingGenre extends Model
 {
     use HasFactory;
 
-     protected $table = 'training_genres';
+    protected $table = 'training_genres';
 
     protected $guarded = [];
+
+    public function trans()
+    {
+    	return $this->hasOne('App\Models\Training\Genre\TrainingGenreTrans','genre_id');
+    }
 }

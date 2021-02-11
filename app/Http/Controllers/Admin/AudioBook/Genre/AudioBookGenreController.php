@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin\AudioBook\Genre;
 
-use App\Filters\AudioBook\Genre\Filter;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\AudioBook\Genre\CreateRequest;
-use App\Http\Requests\AudioBook\Genre\UpdateRequest;
-use App\Repositories\AudioBookGenreRepository;
+use ResponseFormat;
 use GenresService;
 use Illuminate\Http\Request;
-use ResponseFormat;
+use App\Http\Controllers\Controller;
+use App\Filters\AudioBook\Genre\Filter;
+use App\Repositories\AudioBookGenreRepository;
+use App\Http\Requests\AudioBook\Genre\CreateRequest;
+use App\Http\Requests\AudioBook\Genre\UpdateRequest;
 
 class AudioBookGenreController extends Controller
 {
@@ -55,8 +55,9 @@ class AudioBookGenreController extends Controller
                 return $genre ? ResponseFormat::success('Жанр успешно создан','message',200) : ResponseFormat::withError('Ошибка. Жанр не был создан',500);
             }
 
-            return  ResponseFormat::withError('Ошибка. Жанр не был создан',500);
         }
+
+        return  ResponseFormat::withError('Ошибка. Жанр не был создан',500);
     }
 
     public function update(UpdateRequest $request,AudioBookGenreRepository $repository)
