@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAudiobooksTable extends Migration
+class CreateTrainingGenresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateAudiobooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('audiobooks', function (Blueprint $table) {
+        Schema::create('training_genres', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique();
-            $table->string('author');
-            $table->string('file')->nullable();
-            $table->text('desc')->nullable();
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('slug')->unique();
             $table->smallInteger('status')->default(1);
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ class CreateAudiobooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('audiobooks');
+        Schema::dropIfExists('training_genres');
     }
 }
