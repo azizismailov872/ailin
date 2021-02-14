@@ -231,6 +231,7 @@ return [
         'ResponseFormat' => \App\Facades\ResponseFormat::class,
         'AdminUserService' => \App\Facades\AdminUserService::class,
         'GenresService' => \App\Facades\GenresService::class,
+        'ContentService' => \App\Facades\ContentService::class,
     ],
 
 ];

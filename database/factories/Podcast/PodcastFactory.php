@@ -1,20 +1,20 @@
 <?php
 
-namespace Database\Factories\AudioBook;
+namespace Database\Factories\Podcast;
 
-use App\Models\AudioBook\AudioBook;
-use App\Models\AudioBook\Genre\AudioBookGenre;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Str;
+use App\Models\Podcast\Genre\PodcastGenre;
+use App\Models\Podcast\Podcast;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AudioBookFactory extends Factory
+class PodcastFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = AudioBook::class;
+    protected $model = Podcast::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,9 @@ class AudioBookFactory extends Factory
      * @return array
      */
     public function definition()
-    {   
+    {
         $date = $this->faker->dateTimeThisYear('now','Asia/Bishkek');
-        $genres =  AudioBookGenre::select('id','title')->get()->toArray();
+        $genres =  PodcastGenre::select('id','title')->get()->toArray();
         foreach ($genres as $key => $value) {
             $id = $key;
         }

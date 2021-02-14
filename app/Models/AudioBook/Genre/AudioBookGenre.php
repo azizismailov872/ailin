@@ -17,4 +17,9 @@ class AudioBookGenre extends Model
     {
     	return $this->hasOne('App\Models\AudioBook\Genre\AudioBookGenreTrans','genre_id');
     }
+
+    public function books()
+    {
+    	return $this->hasMany('App\Models\AudioBook\AudioBook','genre_id','id');
+    }
 }

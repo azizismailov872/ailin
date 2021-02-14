@@ -12,4 +12,9 @@ class AudioBookTrans extends Model
     protected $table = 'audiobook_trans';
 
     protected $guarded = [];
+
+    public function book()
+    {
+    	return $this->belongsTo('App\Models\AudioBook\AudioBook','book_id');
+    }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AudioBook\AudioBookController;
 use App\Http\Controllers\Admin\AudioBook\Genre\AudioBookGenreController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\Podcast\Genre\PodcastGenreController;
+use App\Http\Controllers\Admin\Podcast\PodcastController;
 use App\Http\Controllers\Admin\Training\Genre\TrainingGenreController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::get('/audiobooks/genres/list',[AudioBookGenreController::class,'list']);
 	Route::get('/audiobooks/genres/one/{id}',[AudioBookGenreController::class,'one']);
 	Route::get('/audiobooks/genres/delete/{id}',[AudioBookGenreController::class,'delete']);
+	Route::get('/audiobooks/genres/genres-list',[AudioBookGenreController::class,'genresList']);
 	Route::post('/audiobooks/genres/search',[AudioBookGenreController::class,'search']);
 	Route::post('/audiobooks/genres/create',[AudioBookGenreController::class,'create']);
 	Route::post('/audiobooks/genres/update/{id}',[AudioBookGenreController::class,'update']);
@@ -43,6 +45,17 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::post('/trainings/genres/search',[TrainingGenreController::class,'search']);
 	Route::post('/trainings/genres/update/{id}',[TrainingGenreController::class,'update']);
 	Route::post('/trainings/genres/create',[TrainingGenreController::class,'create']);
+	//AudioBook
+	Route::get('/audiobooks/list',[AudioBookController::class,'list']);
+	Route::get('/audiobooks/one/{id}',[AudioBookController::class,'one']);
+	Route::get('/audiobooks/delete/{id}',[AudioBookController::class,'delete']);
+	Route::post('/audiobooks/search',[AudioBookController::class,'search']);
+	Route::post('/audiobooks/create',[AudioBookController::class,'create']);
+	Route::post('/audiobooks/update/{id}',[AudioBookController::class,'update']);
+	//Podcast
+	Route::get('/podcasts/list',[PodcastController::class,'list']);
+	Route::get('/podcasts/one/{id}',[PodcastController::class,'one']);
+	Route::post('/podcasts/search',[PodcastController::class,'search']);
 	
 });
 

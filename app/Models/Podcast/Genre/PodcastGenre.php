@@ -17,4 +17,9 @@ class PodcastGenre extends Model
     {
     	return $this->hasOne('App\Models\Podcast\Genre\PodcastGenreTrans','genre_id');
     }
+
+    public function podcast()
+    {
+    	return $this->hasOne('App\Models\Podcast\Podcast','genre_id','id');
+    }
 }

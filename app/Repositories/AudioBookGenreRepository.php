@@ -52,7 +52,7 @@ class AudioBookGenreRepository
 					}
 					else
 					{
-						$genre->trans->update($trans);
+						$genre->trans()->update($trans);
 					}
 				}
 
@@ -84,6 +84,13 @@ class AudioBookGenreRepository
 	public function delete($id)
 	{
 		$this->model->destroy($id);
+	}
+
+	public function genresList()
+	{
+		$list = $this->model->select('id','title')->get()->toArray();
+
+		return isset($list) ? $list : null;
 	}
 
 }
