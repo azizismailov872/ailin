@@ -7,265 +7,196 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
 class ContentService
-{
-	public function getData($request,$uploadFile = 1)
+{	
+
+	public const UPLOAD_AS_FILE = 'file';
+
+	public const UPLOAD_AS_LINK = 'link';
+
+	public function getData($requestData,$uploadFile)
 	{	
-		if($uploadFile == 1)
+		if($uploadFile === self::UPLOAD_AS_LINK)
 		{
-			$data = $request->only('title','author','slug','description','ru_file_link','genre_id','status');
-			$data['ru_file_link'] = null;
-			if($data['genre_id'] == 0)
-			{	
-				$genre = AudioBookGenre::where('title','Без жанра')->first();
-
-				if(!empty($genre))
-				{
-					$data['genre_id'] = $genre->id;
-				}
-			}
-
-			return isset($data) ? $data : null;
-		}
-		else
-		{
-			$data = $request->only('title','author','slug','description','ru_file_link','genre_id','status');
+			$data = Arr::only($requestData,[
+				'title',
+				'slug',
+				'description',
+				'genre_id',
+				'status',
+				'author',
+				'ru_file_link'
+			]);
 			$data['ru_file'] = null;
 			if($data['genre_id'] == 0)
-			{	
-				$genre = AudioBookGenre::where('title','Без жанра')->first();
-
-				if(!empty($genre))
-				{
-					$data['genre_id'] = $genre->id;
-				}
-			}
-
-			return isset($data) ? $data : null;
-		}
-	}
-
-
-	public function getTrans($request,$uploadFile = 1)
-	{
-		if($uploadFile == 1)
-		{
-			$trans = $request->except([
-				'title',
-				'author',
-				'slug',
-				'genre_id',
-				'status',
-				'description',
-				'uploadFile',
-				'ru_file_link',
-				'ru_file',
-				'en_file',
-				'kg_file',
-				'kz_file',
-				'uz_file',
-				'tg_file',
-			]);
-
-			foreach ($trans as $key =>  $value) {
-				if(preg_match("/^['ru','en','kg','kz','uz','tg']{0,2}_file_link$/um",$key))
-				{
-					$trans[$key] = null;
-				}
-			}
-
-			return isset($trans) ? $trans : null;
-		}
-		else
-		{
-			$trans = $request->except([
-				'title',
-				'author',
-				'slug',
-				'genre_id',
-				'status',
-				'description',
-				'uploadFile',
-				'ru_file_link',
-				'ru_file',
-				'en_file',
-				'kg_file',
-				'kz_file',
-				'uz_file',
-				'tg_file',
-			]);
-
-			foreach ($trans as $key =>  $value) {
-				if(preg_match("/^['en','kg','kz','uz','tg']{0,2}_file$/um",$key))
-				{
-					$trans[$key] = null;
-				}
-			}
-
-			return isset($trans) ? $trans : null;
-		}
-	}
-
-	public function saveFiles($files,$book)
-	{
-		if(!empty($book) && !empty($files))
-		{
-			$fileNames = [];
-
-			$id = $book->id;
-
-			foreach ($files as $key => $value) 
-			{	
-				if(preg_match("/^['ru','en','kg','kz','uz','tg']{0,2}/um",substr($key,0,2)))
-				{	
-					if(Storage::disk('books')->exists($id.'/'.substr($key,0,2)))
-					{
-						Storage::disk('books')->deleteDirectory($id.'/'.substr($key,0,2));
-					}
-
-					Storage::disk('books')->putFileAs($id.'/'.substr($key,0,2),$value,$value->getClientOriginalName(),'public');
-
-					$fileNames[$key] = $value->getClientOriginalName();
-				}
-			}
-			if(!empty($fileNames))
 			{
-				$book->trans()->update(Arr::except($fileNames, ['ru_file']));
-				$book->update(['ru_file' => $fileNames['ru_file']]);
-				return true;
+				$data['genre_id'] = AudioBookGenre::where('title','Без жанра')->first()->id;
 			}
+
+			return $data;
+		}
+		elseif($uploadFile === self::UPLOAD_AS_FILE)
+		{
+			$data = Arr::only($requestData,[
+				'title',
+				'slug',
+				'description',
+				'genre_id',
+				'status',
+				'author',
+			]);
+			$data['ru_file_link'] = null;
+			if($data['genre_id'] == 0)
+			{
+				$data['genre_id'] = AudioBookGenre::where('title','Без жанра')->first()->id;
+			}
+
+			return $data;
 		}
 
 		return null;
 	}
 
-	public function updateFiles($files,$model,$disk)
+
+	public function getTrans($requestData,$uploadFile)
 	{
-		if(!empty($files) && !empty($model))
+		if($uploadFile === self::UPLOAD_AS_LINK)
 		{
-			$fileNames = [];
-
-			$id = $model->id;
-
-			foreach($files as $key => $value)
-			{	
-				if(preg_match("/^['ru','en','kg','kz','uz','tg']{0,2}/um",substr($key,0,2)))
-				{	
-					if(Storage::disk($disk)->exists($id.'/'.substr($key,0,2)))
-					{
-						Storage::disk($disk)->deleteDirectory($id.'/'.substr($key,0,2));
-					}
-
-					Storage::disk($disk)->putFileAs($id.'/'.substr($key,0,2),$value,$value->getClientOriginalName());
-
-					$fileNames[$key] = $value->getClientOriginalName();
-				}
-			}
-
-			if(!empty($fileNames))
-			{
-				$model->trans()->update(Arr::except($fileNames, ['ru_file']));
-				$model->update(['ru_file' => $fileNames['ru_file']]);
-				return true;
-			}
+			$data = Arr::only($requestData,[
+				'en_title',
+				'en_description',
+				'en_file_link',
+				'kg_title',
+				'kg_description',
+				'kg_file_link',
+				'kz_title',
+				'kz_description',
+				'kz_file_link',
+				'uz_title',
+				'uz_description',
+				'uz_file_link',
+				'tg_title',
+				'tg_description',
+				'tg_file_link',
+			]);
+			$data['en_file'] = null;
+			$data['kg_file'] = null;
+			$data['kz_file'] = null;
+			$data['uz_file'] = null;
+			$data['tg_file'] = null;
+			return $data;
 		}
+		elseif($uploadFile === self::UPLOAD_AS_FILE)
+		{
+			$data = Arr::only($requestData,[
+				'en_title',
+				'en_description',
+				'kg_title',
+				'kg_description',
+				'kz_title',
+				'kz_description',
+				'uz_title',
+				'uz_description',
+				'tg_title',
+				'tg_description',
+			]);
+			$data['en_file_link'] = null;
+			$data['kg_file_link'] = null;
+			$data['kz_file_link'] = null;
+			$data['uz_file_link'] = null;
+			$data['tg_file_link'] = null;
 
-		return null;
+			return $data;
+		}
 	}
 
-	public function getFiles($request)
+	public function getFileNames($files)
 	{	
-		if($request)
+		$matches = ['kg_file','en_file','kz_file','uz_file','tg_file','ru_file'];
+
+		$fileNames = [];
+
+		foreach($files as $key => $value)
 		{	
-			$files = [];
-
-			if($request->has('ru_file'))
+			if(in_array($key,$matches))
 			{
-				$files['ru_file'] = $request->file('ru_file');
+				$fileNames[$key] = $value->getClientOriginalName();
 			}
-
-			if($request->has('en_file'))
-			{
-				$files['en_file'] = $request->file('en_file');
-			}
-
-			if($request->has('kg_file'))
-			{
-				$files['kg_file'] = $request->file('kg_file');
-			}
-
-			if($request->has('kz_file'))
-			{
-				$files['kz_file'] = $request->file('kz_file');
-			}
-
-			if($request->has('uz_file'))
-			{
-				$files['uz_file'] = $request->file('uz_file');
-			}
-
-			if($request->has('tg_file'))
-			{
-				$files['tg_file'] = $request->file('tg_file');
-			}
-
-			return $files;
 		}
 
+		return isset($fileNames) ? $fileNames : null;
+	}
+
+	public function saveFiles($files,$id,$disk)
+	{		
+		$matches = ['kg_file','en_file','kz_file','uz_file','tg_file','ru_file'];
+		if(isset($files) && !empty($files))
+		{
+			foreach ($files as $key => $value) {
+				if(in_array($key,$matches))
+				{	
+					$locale = substr($key,0,2);
+
+					if(Storage::disk($disk)->exists($id.'/'.$locale.'/'))
+					{
+						Storage::disk($disk)->deleteDirectory($id.'/'.$locale);
+					}
+
+					if(is_null(Storage::disk($disk)->putFileAs($id.'/'.$locale,$value,$value->getClientOriginalName())))
+					{
+						return false;
+					}
+				}
+			}
+			return true;
+		}
 		return null;
 	}
 
-	public function setFilesSize($model) 
+	public function setFilesSize($model,$disk)
 	{
 		if(!empty($model))
 		{
-			$model->hasFile = is_null($model->ru_file_link) ? true : false;
-
-			if($model->hasFile)
+			if(!is_null($model->ru_file))
 			{
-				$model->ru_file = [
-					'name' => $model->ru_file,
-					'size' => Storage::disk('books')->size($model->id.'/ru/'.$model->ru_file)
+				$model['ru_file'] = [
+					'name' => $model->ru_file ,
+					'size' => Storage::disk($disk)->size($model->id.'/ru/'.$model->ru_file),
 				];
+				$model['hasFile'] = true;
+				$trans = $model->trans;
+				if(!is_null($trans))
+				{	
+					$matches = ['en_file','kg_file','kz_file','uz_file','tg_file'];
 
-				if(!empty($model->trans))
-				{
-					$trans = $model->trans;
-					foreach($trans->getAttributes() as $key => $value)
-					{	
-						if(preg_match("/^[en','kg','kz','uz','tg']{0,2}_file/um",$key))
-						{	
-							if(isset($trans[$key]) && !empty($trans[$key]))
+					foreach ($trans->getAttributes() as $key => $value) {
+						if(in_array($key,$matches))
+						{
+							if(!empty($trans[$key]))
 							{
 								$trans[$key] = [
 									'name' => $value,
-									'size' => Storage::disk('books')->size($model->id.'/'.substr($key,0,2).'/'.$value)
+									'size' => Storage::disk($disk)->size($model->id.'/'.substr($key,0,2).'/'.$value)
 								];
 							}
-						}
+						}	
 					}
+
 					$model->trans = $trans;
 				}
 			}
-		}
-
-		return $model;
-	}
-
-
-	public function deleteDirectory($id,$disk)
-	{
-		if(!empty($id) && !empty($disk))
-		{
-			if(Storage::disk($disk)->exists($id))
+			else
 			{
-				Storage::disk($disk)->deleteDirectory($id);
-
-				return true;
+				$model['hasFile'] = false;
 			}
 
-			return null;
+			return $model;
 		}
 
 		return null;
 	}
+
+	public function deleteDirectory($path,$disk)
+	{
+		return Storage::disk($disk)->deleteDirectory($path);
+	}	
 }

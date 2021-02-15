@@ -13,10 +13,18 @@ class AudioBookRepository
 		$this->model = $model;
 	}
 
-	public function create($data,$trans,$files = null)
+	public function make($data)
 	{
-		if(empty($files))
-		{
+		$model = $this->model->make($data);
+
+		return $model;
+	}
+
+
+	public function create($data,$trans,$fileNames = null)
+	{
+		if(empty($fileNames))
+		{	
 			if(isset($data) && !empty($data))
 			{
 				$book = $this->model->create($data);
@@ -33,11 +41,43 @@ class AudioBookRepository
 			}
 			return null;
 		}
+		elseif(isset($fileNames))
+		{
+			if(isset($data) && !empty($data))
+			{
+				if(array_key_exists('ru_file',$fileNames)){
+					$data['ru_file'] = $fileNames['ru_file'];
+
+					$book = $this->model->create($data);
+
+					if(is_null($book->trans))
+					{
+						unset($fileNames['ru_file']);
+						$transData = array_merge($trans,$fileNames);
+						$book->trans()->create($transData);
+					}
+				}
+				else
+				{
+					$book = $this->model->create($data);
+
+					if(is_null($book->trans))
+					{
+						$transData = array_merge($trans,$fileNames);
+						$book->trans()->create($transData);
+					}
+				}
+
+				return $book;
+			}
+
+			return null;
+		}
 	}
 
-	public function list($pageSize = 10)
+	public function list($pageSize = 10, $orderBy = 'id')
 	{
-		return $this->model->orderByDesc('id')->paginate($pageSize);
+		return $this->model->orderByDesc($orderBy)->paginate($pageSize);
 	}
 
 	public function query()
@@ -45,9 +85,26 @@ class AudioBookRepository
 		return $this->model->query();
 	}
 
-	public function one($id)
+	public function one($id, $with = null)
 	{
-		return $this->model->where('id',$id)->with('trans')->first();
+		if($with)
+		{
+			return $this->model->where('id',$id)->with($with)->first();
+		}
+		else 
+		{
+			return $this->model->where('id',$id)->fist();
+		}
+	}
+
+	public function find($where,$with = 'trans')
+	{
+		if($where){
+			return $this->model->where($where)->with($with)->first();
+		}else
+		{
+			return null;
+		}
 	}
 
 	public function delete($id)
@@ -74,28 +131,75 @@ class AudioBookRepository
 		return false;
 	}
 
-	public function update($id,$data,$trans)
+	public function update($id,$data,$trans,$fileNames = null)
 	{
 		$model = $this->model->where('id',$id)->first();
 
 		if(!empty($model))
 		{
-			if($model->update($data))
-			{
-				if(is_null($model->trans))
-				{
-					$model->trans()->create($trans);
+			if(!empty($fileNames))
+			{	
+				if(array_key_exists('ru_file', $fileNames))
+				{	
+					$data['ru_file'] = $fileNames['ru_file'];
+					if($model->update($data))
+					{
+						if(is_null($model->trans))
+						{	
+							unset($fileNames['ru_file']);
+							$transData = array_merge($trans,$fileNames);
+							$model->trans()->create($transData);
+						}
+						else
+						{
+							unset($fileNames['ru_file']);
+							$transData = array_merge($trans,$fileNames);
+							$model->trans->update($transData);
+						}
+
+						return $model;
+					}
 				}
 				else
 				{
-					$model->trans->update($trans);
-				}
+					if($model->update($data))
+					{
+						if(is_null($model->trans))
+						{	
+							$transData = array_merge($trans,$fileNames);
+							$model->trans()->create($transData);
+						}
+						else
+						{
+							$transData = array_merge($trans,$fileNames);
+							$model->trans->update($transData);
+						}
 
-				return $model;
+						return $model;
+					}
+
+					return null;
+				}
 			}
 			else
 			{
-				return null;
+				if($model->update($data))
+				{
+					if(is_null($model->trans))
+					{
+						$model->trans()->create($trans);
+					}
+					else
+					{
+						$model->trans->update($trans);
+					}
+
+					return $model;
+				}
+				else
+				{
+					return null;
+				}
 			}
 		}
 
