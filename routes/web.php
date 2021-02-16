@@ -35,6 +35,7 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::get('/podcasts/genres/list',[PodcastGenreController::class,'list']);
 	Route::get('/podcasts/genres/one/{id}',[PodcastGenreController::class,'one']);
 	Route::get('/podcasts/genres/delete/{id}',[PodcastGenreController::class,'delete']);
+	Route::get('/podcasts/genres/genres-list',[PodcastGenreController::class,'genresList']);
 	Route::post('/podcasts/genres/search',[PodcastGenreController::class,'search']);
 	Route::post('/podcasts/genres/update/{id}',[PodcastGenreController::class,'update']);
 	Route::post('/podcasts/genres/create',[PodcastGenreController::class,'create']);
@@ -55,7 +56,10 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	//Podcast
 	Route::get('/podcasts/list',[PodcastController::class,'list']);
 	Route::get('/podcasts/one/{id}',[PodcastController::class,'one']);
+	Route::get('/podcasts/delete/{id}',[PodcastController::class,'delete']);
 	Route::post('/podcasts/search',[PodcastController::class,'search']);
+	Route::post('/podcasts/create',[PodcastController::class,'create']);
+	Route::post('/podcasts/update/{id}',[PodcastController::class,'update']);
 	
 });
 

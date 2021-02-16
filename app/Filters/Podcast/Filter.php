@@ -67,6 +67,13 @@ class Filter
 	{
 		$this->query->where('title','like',"%$value%");
 	}
+	
+	public function genreTitle($value)
+	{
+		$this->query->whereHas('genre',function($q) use ($value){
+			$q->where('title','like',"%$value%");
+		});
+	}
 
 	public function slug($value)
 	{

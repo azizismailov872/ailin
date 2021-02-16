@@ -11,6 +11,7 @@ use App\Filters\AudioBook\Filter;
 use App\Http\Controllers\Controller;
 //Models
 use App\Models\AudioBook\AudioBook;
+use App\Models\AudioBook\Genre\AudioBookGenre;
 use App\Repositories\AudioBookRepository;
 //Requests
 use App\Http\Requests\AudioBook\CreateRequest;
@@ -48,11 +49,12 @@ class AudioBookController extends Controller
     }
 
     public function create(CreateRequest $request,AudioBookRepository $repository)
-    {    
+    {   
+        $defaultGenreId = AudioBookGenre::where('title','Без жанра')->first()->id;
         if($request->uploadFile == 0)
         {
             //file will be save as link
-            $data = ContentService::getData($request->all(),\App\Services\ContentService::UPLOAD_AS_LINK);
+            $data = ContentService::getData($request->all(),\App\Services\ContentService::UPLOAD_AS_LINK,$defaultGenreId);
 
             $trans = ContentService::getTrans($request->all(),\App\Services\ContentService::UPLOAD_AS_LINK);
 
@@ -70,7 +72,7 @@ class AudioBookController extends Controller
         elseif($request->uploadFile == 1)
         {
             //file will be save as file
-            $data  = ContentService::getData($request->all(),\App\Services\ContentService::UPLOAD_AS_FILE);
+            $data  = ContentService::getData($request->all(),\App\Services\ContentService::UPLOAD_AS_FILE,$defaultGenreId);
 
             $trans =  ContentService::getTrans($request->all(),\App\Services\ContentService::UPLOAD_AS_FILE);
 
@@ -103,6 +105,7 @@ class AudioBookController extends Controller
 
     public function update(UpdateRequest $request,AudioBookRepository $repository)
     {   
+        $defaultGenreId = AudioBookGenre::where('title','Без жанра')->first()->id;
         if(!$request->id)
         {
             return ResponseFormat::withError('Не найдена аудиокнига',404);
@@ -111,7 +114,7 @@ class AudioBookController extends Controller
         if($request->uploadFile == 0)
         {
             //Upload file as link
-            $data = ContentService::getData($request->all(),\App\Services\ContentService::UPLOAD_AS_LINK);
+            $data = ContentService::getData($request->all(),\App\Services\ContentService::UPLOAD_AS_LINK,$defaultGenreId);
 
             $trans = ContentService::getTrans($request->all(),\App\Services\ContentService::UPLOAD_AS_LINK);
 
@@ -130,7 +133,7 @@ class AudioBookController extends Controller
         }
         elseif($request->uploadFile == 1)
         {
-            $data = ContentService::getData($request->all(),\App\Services\ContentService::UPLOAD_AS_FILE);
+            $data = ContentService::getData($request->all(),\App\Services\ContentService::UPLOAD_AS_FILE,$defaultGenreId);
 
             $trans = ContentService::getTrans($request->all(),\App\Services\ContentService::UPLOAD_AS_FILE);
 

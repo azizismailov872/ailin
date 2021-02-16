@@ -36,7 +36,7 @@ class CreatePodcastTransTable extends Migration
             $table->string('tg_file')->nullable();
             $table->string('tg_file_link')->nullable();
             $table->bigInteger('podcast_id')->unsigned();
-            $table->foreign('podcast_id')->references('id')->on('podcasts');
+            $table->foreign('podcast_id')->references('id')->on('podcasts')->onDelete('cascade');
             $table->timestamps();
         });
     }

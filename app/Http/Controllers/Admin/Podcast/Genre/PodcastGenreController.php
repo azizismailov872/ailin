@@ -85,4 +85,11 @@ class PodcastGenreController extends Controller
 
         return ResponseFormat::success('Жанр удален','message',200);
 	}
+
+    public function genresList(PodcastGenreRepository $repository)
+    {
+        $genresList = $repository->genresList();
+
+        return $genresList ? ResponseFormat::success($genresList,'genres',200) : ResponseFormat::withError('Жанры не найдены',200);
+    }
 }

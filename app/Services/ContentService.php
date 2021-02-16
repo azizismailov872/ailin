@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\AudioBook\Genre\AudioBookGenre;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,7 +12,7 @@ class ContentService
 
 	public const UPLOAD_AS_LINK = 'link';
 
-	public function getData($requestData,$uploadFile)
+	public function getData($requestData,$uploadFile,$defaultGenreId)
 	{	
 		if($uploadFile === self::UPLOAD_AS_LINK)
 		{
@@ -29,7 +28,7 @@ class ContentService
 			$data['ru_file'] = null;
 			if($data['genre_id'] == 0)
 			{
-				$data['genre_id'] = AudioBookGenre::where('title','Без жанра')->first()->id;
+				$data['genre_id'] = $defaultGenreId;
 			}
 
 			return $data;
@@ -47,7 +46,7 @@ class ContentService
 			$data['ru_file_link'] = null;
 			if($data['genre_id'] == 0)
 			{
-				$data['genre_id'] = AudioBookGenre::where('title','Без жанра')->first()->id;
+				$data['genre_id'] = $defaultGenreId;
 			}
 
 			return $data;

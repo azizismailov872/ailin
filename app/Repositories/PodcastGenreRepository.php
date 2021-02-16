@@ -85,4 +85,11 @@ class PodcastGenreRepository
 		return null;
 	}
 
+	public function genresList()
+	{
+		$list = $this->model->select('id','title')->get()->toArray();
+
+		return isset($list) ? $list : null;
+	}
+
 }

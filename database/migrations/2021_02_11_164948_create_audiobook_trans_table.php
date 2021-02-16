@@ -36,7 +36,7 @@ class CreateAudiobookTransTable extends Migration
             $table->string('tg_file')->nullable();
             $table->string('tg_file_link')->nullable();
             $table->bigInteger('book_id')->unsigned();
-            $table->foreign('book_id')->references('id')->on('audiobooks');
+            $table->foreign('book_id')->references('id')->on('audiobooks')->onDelete('cascade');
             $table->timestamps();
         });
     }
