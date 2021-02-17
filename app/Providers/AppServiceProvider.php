@@ -8,11 +8,13 @@ use App\Models\AudioBook\Genre\AudioBookGenre;
 use App\Models\Podcast\Genre\PodcastGenre;
 use App\Models\Podcast\Podcast;
 use App\Models\Training\Genre\TrainingGenre;
+use App\Models\Training\Training;
 use App\Repositories\AudioBookGenreRepository;
 use App\Repositories\AudioBookRepository;
 use App\Repositories\PodcastGenreRepository;
 use App\Repositories\PodcastRepository;
 use App\Repositories\TrainingGenreRepository;
+use App\Repositories\TrainingRepository;
 use App\Services\AdminUserService;
 use App\Services\ContentService;
 use App\Services\GenresService;
@@ -46,6 +48,9 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->app->bind(TrainingGenreRepository::class,function($app){
             return new TrainingGenreRepository(new TrainingGenre);
+        });
+        $this->app->bind(TrainingRepository::class,function($app){
+            return new TrainingRepository(new Training);
         });
         
     }

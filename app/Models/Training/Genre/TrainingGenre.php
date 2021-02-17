@@ -17,4 +17,9 @@ class TrainingGenre extends Model
     {
     	return $this->hasOne('App\Models\Training\Genre\TrainingGenreTrans','genre_id');
     }
+
+    public function training()
+    {
+    	return $this->hasOne('App\Models\Training\Training','genre_id','id');
+    }
 }

@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Training;
 
+use ResponseFormat;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\ValidationException;
 
 class CreateRequest extends FormRequest
 {
@@ -13,7 +16,25 @@ class CreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
+    }
+
+    protected function failedValidation(Validator $validator)
+    {   
+        if($validator->fails()){
+            $errorsList =[];
+            foreach($validator->errors()->keys() as $key => $value)
+            {
+                if($value){
+                    $errorsList[$value]['message'] = $validator->errors()->first($value);
+                }
+            }
+        
+            $response = ResponseFormat::withErrors($errorsList,500);
+
+            throw new ValidationException($validator, $response);
+        }
+       
     }
 
     /**
@@ -24,7 +45,44 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|unique:trainings',
+            'slug' => 'required|unique:trainings',
+            'author' => 'required',
+            'en_file' => 'nullable|file|mimes:mp3,pdf,png,jpg,jpeg',
+            'ru_file' => 'nullable|file|mimes:mp3,pdf,png,jpg,jpeg',
+            'kg_file' => 'nullable|file|mimes:mp3,pdf,png,jpg,jpeg',
+            'kz_file' => 'nullable|file|mimes:mp3,pdf,png,jpg,jpeg',
+            'uz_file' => 'nullable|file|mimes:mp3,pdf,png,jpg,jpeg',
+            'tg_file' => 'nullable|file|mimes:mp3,pdf,png,jpg,jpeg',
+            'en_title' => 'required|min:3|unique:training_trans',
+            'kg_title' => 'required|min:3|unique:training_trans',
+            'kz_title' => 'required|min:3|unique:training_trans',
+            'uz_title' => 'required|min:3|unique:training_trans',
+            'tg_title' => 'required|min:3|unique:training_trans',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Заполните заголовок',
+            'author.required' => 'Укажите автора',
+            'en_title.required' => 'Заполните заголовок',
+            'kg_title.required' => 'Заполните перевод заголовков',
+            'kz_title.required' => 'Заполните перевод заголовков',
+            'uz_title.required' => 'Заполните перевод заголовков',
+            'tg_title.required' => 'Заполните перевод заголовков',
+            'title.unique' => 'Такой тренинг уже существует',
+            'kg_title.unique' => 'Тренинг с таким переводом уже существует',
+            'en_title.unique' => 'Тренинг с таким переводом уже существует',
+            'kz_title.unique' => 'Тренинг с таким переводом уже существует',
+            'uz_title.unique' => 'Тренинг с таким переводом уже существует',
+            'tg_title.unique' => 'Тренинг с таким переводом уже существует',
+            'slug.required' => 'Заполните ссылку',
+            'slug.unique' => 'Тренинг с такой ссылкой уже существует',
+            'min' => 'Минимальное колличество символов :min',
+            'status.required' => 'Введите статус',
+            'mimes' => 'Загрузите файл разрешенного формата',
         ];
     }
 }

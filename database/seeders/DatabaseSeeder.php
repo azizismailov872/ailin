@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
         //\App\Models\Podcast\Genre\PodcastGenre::factory(25)->create();
         //\App\Models\Training\Genre\TrainingGenre::factory(25)->create();
         //\App\Models\AudioBook\AudioBook::factory(30)->create();
-        \App\Models\Podcast\Podcast::factory(15)->create();
+        //\App\Models\Podcast\Podcast::factory(15)->create();
+        //\App\Models\Training\Training::factory(30)->create();
        //$this->call('Database\Seeders\AdminUser\AdminUserSeeder');
     }
 }

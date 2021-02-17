@@ -85,4 +85,11 @@ class TrainingGenreController extends Controller
 
         return ResponseFormat::success('Жанр удален','message',200);
 	}
+
+    public function getGenresList(TrainingGenreRepository $repository)
+    {
+        $genresList = $repository->genresList();
+
+        return $genresList ? ResponseFormat::success($genresList,'genres',200) : ResponseFormat::withError('Жанры не найдены',200);
+    }
 }

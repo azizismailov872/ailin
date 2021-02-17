@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\Podcast\Genre\PodcastGenreController;
 use App\Http\Controllers\Admin\Podcast\PodcastController;
 use App\Http\Controllers\Admin\Training\Genre\TrainingGenreController;
+use App\Http\Controllers\Admin\Training\TrainingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +32,7 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::post('/audiobooks/genres/search',[AudioBookGenreController::class,'search']);
 	Route::post('/audiobooks/genres/create',[AudioBookGenreController::class,'create']);
 	Route::post('/audiobooks/genres/update/{id}',[AudioBookGenreController::class,'update']);
-	//Podcast
+	//PodcastGenre
 	Route::get('/podcasts/genres/list',[PodcastGenreController::class,'list']);
 	Route::get('/podcasts/genres/one/{id}',[PodcastGenreController::class,'one']);
 	Route::get('/podcasts/genres/delete/{id}',[PodcastGenreController::class,'delete']);
@@ -39,10 +40,11 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::post('/podcasts/genres/search',[PodcastGenreController::class,'search']);
 	Route::post('/podcasts/genres/update/{id}',[PodcastGenreController::class,'update']);
 	Route::post('/podcasts/genres/create',[PodcastGenreController::class,'create']);
-	//Training
+	//TrainingGenre
 	Route::get('/trainings/genres/list',[TrainingGenreController::class,'list']);
 	Route::get('/trainings/genres/one/{id}',[TrainingGenreController::class,'one']);
 	Route::get('/trainings/genres/delete/{id}',[TrainingGenreController::class,'delete']);
+	Route::get('/trainings/genres/genres-list',[TrainingGenreController::class,'getGenresList']);
 	Route::post('/trainings/genres/search',[TrainingGenreController::class,'search']);
 	Route::post('/trainings/genres/update/{id}',[TrainingGenreController::class,'update']);
 	Route::post('/trainings/genres/create',[TrainingGenreController::class,'create']);
@@ -60,6 +62,15 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::post('/podcasts/search',[PodcastController::class,'search']);
 	Route::post('/podcasts/create',[PodcastController::class,'create']);
 	Route::post('/podcasts/update/{id}',[PodcastController::class,'update']);
+	//Training
+	Route::get('/trainings/list',[TrainingController::class,'list']);
+	Route::get('/trainings/one/{id}',[TrainingController::class,'one']);
+	Route::get('/trainings/delete/{id}',[TrainingController::class,'delete']);
+	Route::get('/trainings/delete-video/{id}',[TrainingController::class,'deleteVideo']);
+	Route::post('/trainings/create',[TrainingController::class,'create']);
+	Route::post('/trainings/update/{id}',[TrainingController::class,'update']);
+	Route::post('/trainings/search',[TrainingController::class,'search']);
+	Route::post('/trainings/upload-video/{id}',[TrainingController::class,'uploadVideo']);
 	
 });
 

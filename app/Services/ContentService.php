@@ -157,11 +157,18 @@ class ContentService
 		{
 			if(!is_null($model->ru_file))
 			{
-				$model['ru_file'] = [
-					'name' => $model->ru_file ,
-					'size' => Storage::disk($disk)->size($model->id.'/ru/'.$model->ru_file),
-				];
-				$model['hasFile'] = true;
+				if(Storage::disk($disk)->exists($model->id.'/ru/'.$model->ru_file))
+				{
+					$model['ru_file'] = [
+						'name' => $model->ru_file ,
+						'size' => Storage::disk($disk)->size($model->id.'/ru/'.$model->ru_file),
+					];
+					$model['hasFile'] = true;
+				}
+				else
+				{
+					$model['hasFile'] = false;
+				}
 				$trans = $model->trans;
 				if(!is_null($trans))
 				{	
@@ -172,10 +179,13 @@ class ContentService
 						{
 							if(!empty($trans[$key]))
 							{
-								$trans[$key] = [
-									'name' => $value,
-									'size' => Storage::disk($disk)->size($model->id.'/'.substr($key,0,2).'/'.$value)
-								];
+								if(Storage::disk($disk)->exists($model->id.'/'.substr($key,0,2).'/'.$value))
+								{
+									$trans[$key] = [
+										'name' => $value,
+										'size' => Storage::disk($disk)->size($model->id.'/'.substr($key,0,2).'/'.$value)
+									];
+								}
 							}
 						}	
 					}
@@ -192,6 +202,116 @@ class ContentService
 		}
 
 		return null;
+	}
+
+	public function getVideoLinks($requestData)
+	{
+		$data = Arr::only($requestData,[
+			'ru_video_link',
+			'en_video_link',
+			'kg_video_link',
+			'kz_video_link',
+			'uz_video_link',
+			'tg_video_link',
+		]);
+		$data['ru_video'] = null;
+		$data['en_video'] = null;
+		$data['kg_video'] = null;
+		$data['kz_video'] = null;
+		$data['uz_video'] = null;
+		$data['tg_video'] = null;
+
+		return $data;
+	}
+
+	public function getVideoNames($files)
+	{	
+		$matches = ['ru_video','kg_video','kz_video','en_video','tg_video','uz_video'];
+
+		$fileNames = [];
+		if(!empty($files))
+		{	
+			foreach ($files as $key => $value) {
+				if(in_array($key,$matches))
+				{
+					$fileNames[$key] = $value->getClientOriginalName();
+				}
+			}
+			$fileNames['ru_video_link'] = null;
+			$fileNames['en_video_link'] = null;
+			$fileNames['kg_video_link'] = null;
+			$fileNames['kz_video_link'] = null;
+			$fileNames['uz_video_link'] = null;
+			$fileNames['tg_video_link'] = null;
+
+			return !empty($fileNames) ? $fileNames : null;
+		}
+
+		return null;
+	}
+
+	public function saveVideos($id,$files)
+	{
+		if(!empty($id) && !empty($files))
+		{	
+			$matches = ['ru_video','kg_video','kz_video','en_video','tg_video','uz_video'];
+			foreach ($files as $key => $value) {
+
+				$locale = substr($key,0,2);
+
+				if(in_array($key,$matches))
+				{
+					if(Storage::disk('trainings')->exists($id.'/videos/'.$locale))
+					{
+						Storage::disk('trainings')->deleteDirectory($id.'/videos/'.$locale);
+					}
+
+					if(is_null(Storage::disk('trainings')->putFileAs($id.'/videos/'.$locale,$value,$value->getClientOriginalName())))
+					{
+						return null;
+					}
+				}
+			}
+
+			return true;
+		}
+
+		return null;
+	}
+
+	public function setVideosSize($model,$disk)
+	{
+		if(!empty($model))
+		{
+			if(!is_null($model->video) && !is_null($model->video->ru_video))
+			{	
+				$matches = ['ru_video','en_video','kg_video','kz_video','uz_video','tg_video'];
+				$model['hasVideo'] = true;
+				foreach ($model->video->getAttributes() as $key => $value) {
+					if(in_array($key,$matches))
+					{
+						if(!is_null($value))
+						{	
+							$locale = substr($key,0,2);
+							if(Storage::disk($disk)->exists($model->id.'/videos/'.$locale.'/'.$value))
+							{
+								$model[$key] = [
+									'name' => $value,
+									'size' => Storage::disk($disk)->size($model->id.'/videos/'.$locale.'/'.$value)
+								];
+							}
+						}
+					}
+				}
+				return $model;
+			}	
+			else
+			{
+				$model['hasVideo'] = false;
+			}
+		}
+
+		return $model;
 	}
 
 	public function deleteDirectory($path,$disk)
