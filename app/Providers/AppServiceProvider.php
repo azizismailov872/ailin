@@ -3,23 +3,25 @@
 namespace App\Providers;
 
 //AudioBook
-use App\Models\AudioBook\AudioBook;
-use App\Models\AudioBook\Genre\AudioBookGenre;
-use App\Models\Podcast\Genre\PodcastGenre;
+use App\Models\User;
 use App\Models\Podcast\Podcast;
-use App\Models\Training\Genre\TrainingGenre;
-use App\Models\Training\Training;
-use App\Repositories\AudioBookGenreRepository;
-use App\Repositories\AudioBookRepository;
-use App\Repositories\PodcastGenreRepository;
-use App\Repositories\PodcastRepository;
-use App\Repositories\TrainingGenreRepository;
-use App\Repositories\TrainingRepository;
-use App\Services\AdminUserService;
-use App\Services\ContentService;
 use App\Services\GenresService;
+use App\Services\ContentService;
 use App\Services\ResponseFormat;
+use App\Models\Training\Training;
+use App\Services\AdminUserService;
+use App\Models\AudioBook\AudioBook;
+use App\Repositories\UserRepository;
+use App\Repositories\PodcastRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\TrainingRepository;
+use App\Repositories\AudioBookRepository;
+use App\Models\Podcast\Genre\PodcastGenre;
+use App\Models\Training\Genre\TrainingGenre;
+use App\Repositories\PodcastGenreRepository;
+use App\Repositories\TrainingGenreRepository;
+use App\Models\AudioBook\Genre\AudioBookGenre;
+use App\Repositories\AudioBookGenreRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -51,6 +53,9 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->app->bind(TrainingRepository::class,function($app){
             return new TrainingRepository(new Training);
+        });
+        $this->app->bind(UserRepository::class,function($app){
+            return new UserRepository(new User);
         });
         
     }

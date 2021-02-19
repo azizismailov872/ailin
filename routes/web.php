@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\Admin\AudioBook\AudioBookController;
-use App\Http\Controllers\Admin\AudioBook\Genre\AudioBookGenreController;
-use App\Http\Controllers\Admin\Auth\AuthController;
-use App\Http\Controllers\Admin\Podcast\Genre\PodcastGenreController;
-use App\Http\Controllers\Admin\Podcast\PodcastController;
-use App\Http\Controllers\Admin\Training\Genre\TrainingGenreController;
-use App\Http\Controllers\Admin\Training\TrainingController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Auth\AuthController;
+use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\Admin\Podcast\PodcastController;
+use App\Http\Controllers\Admin\Training\TrainingController;
+use App\Http\Controllers\Admin\AudioBook\AudioBookController;
+use App\Http\Controllers\Admin\Podcast\Genre\PodcastGenreController;
+use App\Http\Controllers\Admin\Training\Genre\TrainingGenreController;
+use App\Http\Controllers\Admin\AudioBook\Genre\AudioBookGenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,13 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::post('/trainings/update/{id}',[TrainingController::class,'update']);
 	Route::post('/trainings/search',[TrainingController::class,'search']);
 	Route::post('/trainings/upload-video/{id}',[TrainingController::class,'uploadVideo']);
+	//Users
+	Route::get('/users/list',[UserController::class,'list']);
+	Route::get('/users/one/{id}',[UserController::class,'one']);
+	Route::get('/users/delete/{id}',[UserController::class,'delete']);
+	Route::post('/users/search',[UserController::class,'search']);
+	Route::post('/users/create',[UserController::class,'create']);
+	Route::post('/users/update/{id}',[UserController::class,'update']);
 	
 });
 

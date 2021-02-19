@@ -21,13 +21,15 @@ class UserFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    {   
+        $date = $this->faker->dateTimeThisYear('now','Asia/Bishkek');
         return [
             'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'surname' => $this->faker->lastName,
+            'phone' => $this->faker->e164PhoneNumber,
             'remember_token' => Str::random(10),
+            'created_at' => $date,
+            'updated_at' => $date,
         ];
     }
 }
