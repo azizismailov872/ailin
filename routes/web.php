@@ -93,6 +93,7 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::get('/admin-users/list',[AdminUserController::class,'list']);
 	Route::get('/admin-users/one/{id}',[AdminUserController::class,'one']);
 	Route::get('/admin-users/delete/{id}',[AdminUserController::class,'delete']);
+	Route::get('/admin-users/delete-photo/{id}',[AdminUserController::class,'deletePhoto']);
 	Route::post('/admin-users/search',[AdminUserController::class,'search']);
 	Route::post('/admin-users/create',[AdminUserController::class,'create']);
 	Route::post('/admin-users/update/{id}',[AdminUserController::class,'update']);

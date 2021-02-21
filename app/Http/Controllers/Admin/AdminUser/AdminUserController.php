@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin\AdminUser;
 use ResponseFormat;
 use ContentService;
 use Illuminate\Http\Request;
+use App\Models\AdminUser\AdminUser;
 use App\Filters\AdminUser\Filter;
 use App\Http\Controllers\Controller;
 use App\Repositories\AdminUserRepository;
 use App\Http\Requests\AdminUser\CreateRequest;
 use App\Http\Requests\AdminUser\UpdateRequest;
+use Illuminate\Support\Facades\Storage;
 
 class AdminUserController extends Controller
 {
@@ -84,6 +86,32 @@ class AdminUserController extends Controller
 
             return $response ? ResponseFormat::success('Пользователь удален','message',200) :
             ResponseFormat::withError('Пользователь не удален',404);
+        }
+    }
+
+
+    public function deletePhoto(Request $request)
+    {
+        $user = AdminUser::where('id',$request->id)->first();
+
+        if(!empty($user) && !is_null($user))
+        {
+            if(Storage::disk('users')->exists($user->id))
+            {
+                if(ContentService::deleteDirectory($user->id,'users'))
+                {   
+                    $user->update(['photo' => 'default.png']);
+                    return ResponseFormat::success('Фото удалено','message',200);
+                }
+                else
+                {
+                    return ResponseFormat::withError('Фото не удалено',500);
+                }
+            }
+            else
+            {
+                return ResponseFormat::success('Фото удалено','message',200);
+            }
         }
     }
 }
