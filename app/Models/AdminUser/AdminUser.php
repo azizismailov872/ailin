@@ -11,4 +11,6 @@ class AdminUser extends Authenticatable
     use HasFactory;
 
     protected $table = 'admin_users';
+
+    protected $guarded = [];
 }

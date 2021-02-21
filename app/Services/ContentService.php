@@ -314,8 +314,51 @@ class ContentService
 		return $model;
 	}
 
+	public function setImageSize($model,$disk)
+	{
+		if(!empty($model))
+		{
+			if(!is_null($model->photo) && $model->photo !== 'default.png')
+			{
+				if(Storage::disk($disk)->exists($model->id.'/'.$model->photo))
+				{
+					$model->photo = [
+						'name' => $model->photo,
+						'size' => Storage::disk($disk)->size($model->id.'/'.$model->photo)
+					];
+				}
+			}
+
+			return $model;
+		}
+
+		return null;
+	}
+
 	public function deleteDirectory($path,$disk)
 	{
 		return Storage::disk($disk)->deleteDirectory($path);
-	}	
+	}
+	
+	public function uploadImage($id,$image,$disk)
+	{
+		if(!empty($image) && !is_null($image))
+		{	
+			$imageName = $image->getClientOriginalName();
+
+			if(Storage::disk($disk)->exists($id))
+			{
+				Storage::disk($disk)->deleteDirectory($id);
+			}
+
+			if(!Storage::disk($disk)->putFileAs($id,$image,$imageName))
+			{
+				return false;
+			}
+
+			return $imageName;
+		}
+
+		return false;
+	}
 }

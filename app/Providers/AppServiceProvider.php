@@ -10,11 +10,15 @@ use App\Services\ContentService;
 use App\Services\ResponseFormat;
 use App\Models\Training\Training;
 use App\Services\AdminUserService;
+use App\Models\AdminUser\AdminUser;
 use App\Models\AudioBook\AudioBook;
+use App\Models\RegisterApplication;
+use App\Models\VolunteerApplication;
 use App\Repositories\UserRepository;
 use App\Repositories\PodcastRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\TrainingRepository;
+use App\Repositories\AdminUserRepository;
 use App\Repositories\AudioBookRepository;
 use App\Models\Podcast\Genre\PodcastGenre;
 use App\Models\Training\Genre\TrainingGenre;
@@ -22,6 +26,8 @@ use App\Repositories\PodcastGenreRepository;
 use App\Repositories\TrainingGenreRepository;
 use App\Models\AudioBook\Genre\AudioBookGenre;
 use App\Repositories\AudioBookGenreRepository;
+use App\Repositories\RegisterApplicationRepository;
+use App\Repositories\VolunteerApplicationRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -56,6 +62,15 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->app->bind(UserRepository::class,function($app){
             return new UserRepository(new User);
+        });
+        $this->app->bind(RegisterApplicationRepository::class,function($app){
+            return new RegisterApplicationRepository(new RegisterApplication);
+        });
+        $this->app->bind(AdminUserRepository::class,function($app){
+            return  new AdminUserRepository(new AdminUser);
+        });
+        $this->app->bind(VolunteerApplicationRepository::class,function($app){
+            return  new VolunteerApplicationRepository(new VolunteerApplication);
         });
         
     }

@@ -5,7 +5,10 @@ use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\Podcast\PodcastController;
 use App\Http\Controllers\Admin\Training\TrainingController;
+use App\Http\Controllers\Admin\AdminUser\AdminUserController;
 use App\Http\Controllers\Admin\AudioBook\AudioBookController;
+use App\Http\Controllers\Admin\RegisterApplicationController;
+use App\Http\Controllers\Admin\VolunteerApplicationController;
 use App\Http\Controllers\Admin\Podcast\Genre\PodcastGenreController;
 use App\Http\Controllers\Admin\Training\Genre\TrainingGenreController;
 use App\Http\Controllers\Admin\AudioBook\Genre\AudioBookGenreController;
@@ -79,6 +82,27 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::post('/users/search',[UserController::class,'search']);
 	Route::post('/users/create',[UserController::class,'create']);
 	Route::post('/users/update/{id}',[UserController::class,'update']);
+	//RegisterApplication
+	Route::get('/register-applications/list',[RegisterApplicationController::class,'list']);
+	Route::get('/register-applications/one/{id}',[RegisterApplicationController::class,'one']);
+	Route::get('/register-applications/delete/{id}',[RegisterApplicationController::class,'delete']);
+	Route::post('/register-applications/search',[RegisterApplicationController::class,'search']);
+	Route::post('/register-applications/create',[RegisterApplicationController::class,'create']);
+	Route::post('/register-applications/update/{id}',[RegisterApplicationController::class,'update']);
+	//AdminUser
+	Route::get('/admin-users/list',[AdminUserController::class,'list']);
+	Route::get('/admin-users/one/{id}',[AdminUserController::class,'one']);
+	Route::get('/admin-users/delete/{id}',[AdminUserController::class,'delete']);
+	Route::post('/admin-users/search',[AdminUserController::class,'search']);
+	Route::post('/admin-users/create',[AdminUserController::class,'create']);
+	Route::post('/admin-users/update/{id}',[AdminUserController::class,'update']);
+	//VolunteerApplication
+	Route::get('/volunteer-applications/list',[VolunteerApplicationController::class,'list']);
+	Route::get('/volunteer-applications/one/{id}',[VolunteerApplicationController::class,'one']);
+	Route::get('/volunteer-applications/delete/{id}',[VolunteerApplicationController::class,'delete']);
+	Route::post('/volunteer-applications/search',[VolunteerApplicationController::class,'search']);
+	Route::post('/volunteer-applications/create',[VolunteerApplicationController::class,'create']);
+	Route::post('/volunteer-applications/update/{id}',[VolunteerApplicationController::class,'update']);
 	
 });
 
