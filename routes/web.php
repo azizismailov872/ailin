@@ -107,9 +107,11 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	
 });
 
-Route::get('/{path?}',function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function(){
+	Route::get('/{path?}',function(){
         return view('admin');
-})->where(['path' => '.*']);
+	})->where(['path' => '.*']);
+});
 
 
 

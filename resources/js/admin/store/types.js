@@ -1,0 +1,1 @@
+export const SET_INITIALIZED = 'app/SET_INITIALIZED';

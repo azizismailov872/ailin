@@ -1,0 +1,119 @@
+.content {
+    width: 100%;
+    height: 100vh;
+    background-color: #1d1f20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    backdrop-filter: blur(1px);
+}
+
+.loader {
+  position: relative;
+  background-color: #b9e9bb;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  -webkit-animation: 1.4s linear infinite;
+          animation: 1.4s linear infinite;
+  -webkit-animation-name: uknow6n;
+          animation-name: uknow6n;
+}
+@-webkit-keyframes uknow6n {
+  20% {
+    transform: rotate(-30deg) scale(1);
+  }
+  50% {
+    transform: rotate(360deg) scale(4);
+    background-color: white;
+  }
+  80% {
+    transform: rotate(720deg) scale(0.8);
+  }
+  90%, 100% {
+    transform: rotate(720deg) scale(1);
+    background-color: #b9e9bb;
+  }
+}
+@keyframes uknow6n {
+  20% {
+    transform: rotate(-30deg) scale(1);
+  }
+  50% {
+    transform: rotate(360deg) scale(4);
+    background-color: white;
+  }
+  80% {
+    transform: rotate(720deg) scale(0.8);
+  }
+  90%, 100% {
+    transform: rotate(720deg) scale(1);
+    background-color: #b9e9bb;
+  }
+}
+.loader:before, .loader:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #6bd170;
+  border-radius: 3px;
+}
+.loader:before {
+  right: calc(100% + 2px);
+  -webkit-animation: 1.4s 0.2s ease infinite;
+          animation: 1.4s 0.2s ease infinite;
+  -webkit-animation-name: uknow6o;
+          animation-name: uknow6o;
+}
+@-webkit-keyframes uknow6o {
+  65% {
+    transform: translate(-200%, -100%) scale(0.2) rotate(-180deg);
+    background-color: white;
+  }
+  70%, 100% {
+    transform: translate(0, 0) scale(1) rotate(-360deg);
+    background-color: #6bd170;
+  }
+}
+@keyframes uknow6o {
+  65% {
+    transform: translate(-200%, -100%) scale(0.2) rotate(-180deg);
+    background-color: white;
+  }
+  70%, 100% {
+    transform: translate(0, 0) scale(1) rotate(-360deg);
+    background-color: #6bd170;
+  }
+}
+.loader:after {
+  left: calc(100% + 2px);
+  -webkit-animation: 1.4s 0.2s ease infinite;
+          animation: 1.4s 0.2s ease infinite;
+  -webkit-animation-name: uknow7d;
+          animation-name: uknow7d;
+}
+@-webkit-keyframes uknow7d {
+  65% {
+    transform: translate(200%, 100%) scale(0.2) rotate(180deg);
+    background-color: white;
+  }
+  70%, 100% {
+    transform: translate(0, 0) scale(1) rotate(360deg);
+    background-color: #6bd170;
+  }
+}
+@keyframes uknow7d {
+  65% {
+    transform: translate(200%, 100%) scale(0.2) rotate(180deg);
+    background-color: white;
+  }
+  70%, 100% {
+    transform: translate(0, 0) scale(1) rotate(360deg);
+    background-color: #6bd170;
+  }
+}

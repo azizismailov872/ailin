@@ -169,33 +169,30 @@ class ContentService
 				{
 					$model['hasFile'] = false;
 				}
-				$trans = $model->trans;
-				if(!is_null($trans))
-				{	
-					$matches = ['en_file','kg_file','kz_file','uz_file','tg_file'];
-
-					foreach ($trans->getAttributes() as $key => $value) {
-						if(in_array($key,$matches))
-						{
-							if(!empty($trans[$key]))
-							{
-								if(Storage::disk($disk)->exists($model->id.'/'.substr($key,0,2).'/'.$value))
-								{
-									$trans[$key] = [
-										'name' => $value,
-										'size' => Storage::disk($disk)->size($model->id.'/'.substr($key,0,2).'/'.$value)
-									];
-								}
-							}
-						}	
-					}
-
-					$model->trans = $trans;
-				}
 			}
-			else
-			{
-				$model['hasFile'] = false;
+			$trans = $model->trans;
+			if(!is_null($trans))
+			{	
+				$matches = ['en_file','kg_file','kz_file','uz_file','tg_file'];
+
+				foreach ($trans->getAttributes() as $key => $value) {
+					if(in_array($key,$matches))
+					{
+						if(!empty($trans[$key]))
+						{
+							if(Storage::disk($disk)->exists($model->id.'/'.substr($key,0,2).'/'.$value))
+							{	
+								$model['hasFile'] = true;
+								$trans[$key] = [
+									'name' => $value,
+									'size' => Storage::disk($disk)->size($model->id.'/'.substr($key,0,2).'/'.$value)
+								];
+							}
+						}
+					}
+				}
+
+				$model->trans = $trans;
 			}
 
 			return $model;

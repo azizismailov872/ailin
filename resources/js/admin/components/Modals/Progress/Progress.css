@@ -1,0 +1,54 @@
+.progress-content
+{
+	min-height: 200px;
+	width: 55vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.progress-title
+{
+	margin-bottom: 0;
+}
+
+.progress-title h2
+{
+	font-size: 32px;
+	color: #2e2e2e;
+}
+
+.progress-wrapper
+{
+	width: 100%;
+	margin-top: 0px;
+	padding-top: 0px !important;
+}
+
+
+@media (max-width: 992px) {
+	.progress-content
+	{
+		min-height: 220px;
+		width: 85vw;
+	}
+
+	.progress-title h2
+	{
+		font-size: 28px;
+	}
+}
+
+@media (max-width: 600px) {
+	.progress-content
+	{
+		min-height: 200px;
+		width: 75vw;
+	}
+
+	.progress-title h2
+	{
+		font-size: 22px;
+	}
+}

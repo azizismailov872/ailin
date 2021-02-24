@@ -1,0 +1,12 @@
+.defaultLink
+{
+	color: #2e2e2e;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.defaultLink:hover,.defaultLink:focus
+{
+	background: none;
+	color: inherit;
+}

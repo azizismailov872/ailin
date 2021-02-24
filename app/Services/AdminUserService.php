@@ -43,4 +43,9 @@ class AdminUserService
 			return null;
 		}
 	}
+
+	public function logout()
+	{
+		Auth::guard('admin')->logout();
+	}
 }

@@ -1,0 +1,65 @@
+.error-content
+{
+	min-height: 240px;
+	width: 50vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.error-img 
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 18px;
+}
+
+.error-img img 
+{
+	width: 85px;
+	height: 85px;
+}
+
+.error-message
+{
+	font-size: 34px;
+	font-family: "Montserrat",sans-serif;
+	text-align: center;
+	color: #2e2e2e;
+}
+
+
+
+@media (max-width: 992px) {
+	.error-content
+	{
+		min-height: 220px;
+		width: 85vw;
+	}
+
+	.error-message
+	{
+		font-size: 28px;
+	}
+}
+
+@media (max-width: 600px) {
+	.error-content
+	{
+		min-height: 200px;
+		width: 75vw;
+	}
+
+	.error-img img 
+	{
+		width: 65px;
+		height: 65px;
+	}
+
+	.error-message
+	{
+		font-size: 22px;
+	}
+}

@@ -1,0 +1,1 @@
+export const SET_USERS = 'adminUser/SET_USERS';

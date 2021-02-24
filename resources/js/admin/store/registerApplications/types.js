@@ -1,0 +1,1 @@
+export const SET_MODELS = 'registerApplications/SET_MODELS';

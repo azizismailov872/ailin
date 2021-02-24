@@ -1,0 +1,1 @@
+export const SET_TRAININGS = 'trainings/SET_TRAININGS';

@@ -53,6 +53,10 @@ class AdminUserRepository
 			{
 				$data['password'] = Hash::make($data['password']);
 			}
+			if(empty($data['photo']))
+			{
+				$data['photo'] = 'default.png';
+			}
 			$user = $this->model->create($data);
 			
 			if(!empty($user))
