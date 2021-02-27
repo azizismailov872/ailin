@@ -17,7 +17,7 @@ const Success = (props) =>  {
             >
                 <DialogContent className="success-content">
                     <div className="success-img">
-                        <img src="/img/icons/success.png" alt="success" />
+                        <img src="/dashboard/img/icons/success.png" alt="success" />
                     </div>
                     <h2 className="success-message">{props.message}</h2>
                 </DialogContent>

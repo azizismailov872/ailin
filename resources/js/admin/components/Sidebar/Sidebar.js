@@ -68,11 +68,11 @@ const Sidebar = (props) => {
                 >
                     <span className="navbar-toggler-icon" />
                 </button>
-                <NavbarBrand className="pt-0" href="/admin/index">
+                <NavbarBrand className="pt-0" href="/admin/users/list">
                     <img
                         alt="logo"
                         className="navbar-brand-img"
-                        src="/img/logo.png"
+                        src="/dashboard/img/logo.png"
                     />
                 </NavbarBrand>
                 <UserMenu user={props.user} />
@@ -80,10 +80,10 @@ const Sidebar = (props) => {
                     <div className="navbar-collapse-header d-md-none">
                         <Row>
                             <Col className="collapse-brand" xs="6">
-                                <Link to="/admin/">
+                                <Link to="/admin/users/list">
                                     <img
                                         alt="logo"
-                                        src="/img/logo.png"
+                                        src="/dashboard/img/logo.png"
                                     />
                                 </Link>
                             </Col>

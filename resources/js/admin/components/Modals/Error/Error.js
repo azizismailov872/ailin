@@ -23,7 +23,7 @@ const Error = (props) =>  {
             >
                 <DialogContent className="error-content">
                     <div className="error-img">
-                        <img src="/img/icons/error.png" />
+                        <img src="/dashboard/img/icons/error.png" />
                     </div>
                     <h2 className="error-message">{props.message}</h2>
                 </DialogContent>

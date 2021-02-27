@@ -23,7 +23,7 @@ const AuthNavbar = () => {
                     <NavbarBrand to="/" tag={Link}>
                         <img
                             alt="logo"
-                            src="/img/logo.png"
+                            src="/dashboard/img/logo.png"
                         />
                     </NavbarBrand>
                     <button
@@ -42,7 +42,7 @@ const AuthNavbar = () => {
                                     <Link to="/">
                                         <img
                                             alt="logo"
-                                            src="/img/logo.png"
+                                            src="/dashboard/img/logo.png"
                                         />
                                     </Link>
                                 </Col>
@@ -61,7 +61,7 @@ const AuthNavbar = () => {
                             <NavItem>
                                 <NavLink
                                     className="nav-link-icon"
-                                    to="/admin"
+                                    to="/"
                                     tag={Link}
                                 >
                                     <i className="ni ni-planet" />
