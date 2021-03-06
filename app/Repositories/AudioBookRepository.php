@@ -80,6 +80,13 @@ class AudioBookRepository
 		return $this->model->orderByDesc($orderBy)->paginate($pageSize);
 	}
 
+	public function listByGenre($pageSize = 10, $genre)
+	{	
+		return $this->model->whereHas('genre',function($q) use ($genre){
+			$q->where('slug',"$genre");
+		})->get();
+	}
+
 	public function query()
 	{
 		return $this->model->query();

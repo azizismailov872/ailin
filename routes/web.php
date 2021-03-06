@@ -1,17 +1,20 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\Auth\AuthController;
-use App\Http\Controllers\Admin\User\UserController;
-use App\Http\Controllers\Admin\Podcast\PodcastController;
-use App\Http\Controllers\Admin\Training\TrainingController;
 use App\Http\Controllers\Admin\AdminUser\AdminUserController;
 use App\Http\Controllers\Admin\AudioBook\AudioBookController;
-use App\Http\Controllers\Admin\RegisterApplicationController;
-use App\Http\Controllers\Admin\VolunteerApplicationController;
-use App\Http\Controllers\Admin\Podcast\Genre\PodcastGenreController;
-use App\Http\Controllers\Admin\Training\Genre\TrainingGenreController;
 use App\Http\Controllers\Admin\AudioBook\Genre\AudioBookGenreController;
+use App\Http\Controllers\Admin\Auth\AuthController;
+use App\Http\Controllers\Admin\Podcast\Genre\PodcastGenreController;
+use App\Http\Controllers\Admin\Podcast\PodcastController;
+use App\Http\Controllers\Admin\RegisterApplicationController;
+use App\Http\Controllers\Admin\Training\Genre\TrainingGenreController;
+use App\Http\Controllers\Admin\Training\TrainingController;
+use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\Admin\VolunteerApplicationController;
+use App\Http\Controllers\AudioBook\AudioBookController as FrontAudioBook;
+use App\Http\Controllers\Auth\AuthController as LoginController;
+use App\Http\Controllers\Main\MainController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +115,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function(){
         return view('admin');
 	})->where(['path' => '.*']);
 });
-
-
 
