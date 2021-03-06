@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\VolunteerApplicationController;
 use Illuminate\Support\Facades\Route;
 //Frontned Controllers
 use App\Http\Controllers\Main\MainController;
+use App\Http\Controllers\Auth\AuthController as LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,5 +124,9 @@ Route::group(['middleware' => 'locale'],function(){
 	Route::get('/welcome',[MainController::class,'welcome'])->name('welcome');
 	Route::get('/language',[MainController::class,'language'])->name('language');
 	Route::get('/set-language/{lang}',[MainController::class,'setLanguage'])->name('setLang');
+	//Auth
+	Route::get('/login',[LoginController::class,'showLogin'])->name('showLogin');
+	Route::post('/login',[LoginController::class,'login'])->name('login');
+	Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 });
 

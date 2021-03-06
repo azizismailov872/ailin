@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style_sm.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+	<link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
 	<script>
 		document.getElementById('reg-button-1').onclick = function() {
 		  document.getElementById('reg-block-1').classList.toggle('hidden');
@@ -34,6 +35,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
-	
+	{{-- Custom --}}
+	<script src="{{asset('js/frontend/phonenumber.js')}}"></script>
+	<script src="{{asset('js/frontend/main.js')}}"></script>
 </body>
 </html>

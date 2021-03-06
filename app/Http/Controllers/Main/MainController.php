@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -14,7 +15,7 @@ class MainController extends Controller
     }
 
     public function index()
-    {
+    {   
     	return view('main.main');
     }
 
