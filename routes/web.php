@@ -116,7 +116,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function(){
 	})->where(['path' => '.*']);
 });
 
-Route::get('/',[MainController::class,'index'])->name('index');
-Route::get('/about',[MainController::class,'about'])->name('about');
-Route::get('/welcome',[MainController::class,'welcome'])->name('welcome');
+Route::group(['middleware' => 'locale'],function(){
+	Route::get('/',[MainController::class,'default'])->name('default');
+	Route::get('/main',[MainController::class,'index'])->name('index');
+	Route::get('/about',[MainController::class,'about'])->name('about');
+	Route::get('/welcome',[MainController::class,'welcome'])->name('welcome');
+	Route::get('/language',[MainController::class,'language'])->name('language');
+	Route::get('/set-language/{lang}',[MainController::class,'setLanguage'])->name('setLang');
+});
 
