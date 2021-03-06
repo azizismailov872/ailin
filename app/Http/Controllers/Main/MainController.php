@@ -19,11 +19,11 @@ class MainController extends Controller
 
     public function about()
     {
-
+        return view('main.about');
     }
 
     public function welcome()
     {
-
+        return view('main.welcome');
     }
 }

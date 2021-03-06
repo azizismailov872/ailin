@@ -117,4 +117,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function(){
 });
 
 Route::get('/',[MainController::class,'index'])->name('index');
+Route::get('/about',[MainController::class,'about'])->name('about');
+Route::get('/welcome',[MainController::class,'welcome'])->name('welcome');
 
