@@ -1,5 +1,6 @@
 <?php
 
+//AdminControllers
 use App\Http\Controllers\Admin\AdminUser\AdminUserController;
 use App\Http\Controllers\Admin\AudioBook\AudioBookController;
 use App\Http\Controllers\Admin\AudioBook\Genre\AudioBookGenreController;
@@ -11,10 +12,9 @@ use App\Http\Controllers\Admin\Training\Genre\TrainingGenreController;
 use App\Http\Controllers\Admin\Training\TrainingController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\VolunteerApplicationController;
-use App\Http\Controllers\AudioBook\AudioBookController as FrontAudioBook;
-use App\Http\Controllers\Auth\AuthController as LoginController;
-use App\Http\Controllers\Main\MainController;
 use Illuminate\Support\Facades\Route;
+//Frontned Controllers
+use App\Http\Controllers\Main\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,4 +115,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function(){
         return view('admin');
 	})->where(['path' => '.*']);
 });
+
+Route::get('/',[MainController::class,'index'])->name('index');
 
