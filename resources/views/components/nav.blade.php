@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md d-flex container-fluid nav-container mb-4 d-flex justify-content-between">
 	<!-- Collapse button -->
 	<button class=" navbar-toggler d-inline-block nav-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
-	    aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Открыть меню">
+	    aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="@lang('main.openMenu')">
 	    <div class="animated-icon1"><span></span><span></span><span></span></div>
 	</button>
 	</button>

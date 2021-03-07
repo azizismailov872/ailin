@@ -14,4 +14,5 @@ return [
 	'about' => 'About Ailin',
 	'opportunities' => 'Opportunities',
 	'changeLocale' => 'Change language',
+	'openMenu' => 'Open the menu',
 ];

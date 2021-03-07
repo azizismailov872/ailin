@@ -7,18 +7,18 @@
 		<div class="container-fluid">
 			<div class="row title-page-block">
 				<div class="col-12">
-					<h1 class="display-3 title-page">Выбрать язык платформы</h1>
+					<h1 class="display-4 title-page">@lang('pages.languageHeader')</h1>
 					<nav aria-label="breadcrumb">
 					  <ol class="breadcrumb">
-						<li class="breadcrumb-item text-uppercase"><a href="{{route('index')}}">Главная</a></li>
-						<li class="breadcrumb-item text-uppercase active" aria-current="page">Выбрать язык</li>
+						<li class="breadcrumb-item text-uppercase" aria-label="@lang('main.main')"><a aria-label="@lang('main.main')" href="{{route('index')}}">@lang('main.main')</a></li>
+						<li class="breadcrumb-item text-uppercase active" aria-current="page">@lang('pages.selectLang')</li>
 					  </ol>
 					</nav>
 				</div>
 			</div>
 			<div class="row reg-block-1">
 				<div class="col-12 title">
-					<h1 class="text-uppercase h1-1 text-center" aria-label="Выберите язык платформы" tabindex="0">Выберите язык использования</h1>
+					<h1 class="text-uppercase h1-1 text-center" aria-label="@lang('pages.chooseLanguageOfUse')" tabindex="0">@lang('pages.chooseLanguageOfUse')</h1>
 				</div>
 				<div class="flex buttons">
 					<a href="{{route('setLang','en')}}" class="col btn btn-primary btn-lg">English</a>
