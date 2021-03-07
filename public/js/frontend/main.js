@@ -1,4 +1,5 @@
 $(function(){
+	let lang = $('html').attr('lang');
 	$('#phoneNumber').on('keyup',function(e){
 		let newString = new libphonenumber.parsePhoneNumberFromString(e.target.value);
 		if(newString)
@@ -22,5 +23,31 @@ $(function(){
             	console.log('error ',response);
             }
         });
-	})
+	});
+
+	$('.play-description').on('click',function(){
+		let text = $('.description-play').text();
+		speak(text);
+	});
 });
+
+function getLang()
+{	
+	let lang = $('html').attr('lang');
+	if(lang === 'en')
+	{
+		return 'en-EN';
+	}
+	else
+	{
+		return 'ru-RU';
+	}
+
+}
+
+function speak(text) {
+	const message = new SpeechSynthesisUtterance();
+  	message.lang = getLang();
+  	message.text = text;
+  	window.speechSynthesis.speak(message);
+}

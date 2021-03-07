@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 //Frontned Controllers
 use App\Http\Controllers\Main\MainController;
 use App\Http\Controllers\Auth\AuthController as LoginController;
+use App\Http\Controllers\Audiobook\AudiobookController as BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -128,5 +129,9 @@ Route::group(['middleware' => 'locale'],function(){
 	Route::get('/login',[LoginController::class,'showLogin'])->name('showLogin');
 	Route::post('/login',[LoginController::class,'login'])->name('login');
 	Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+	//Audiobooks
+	Route::get('/audiobooks/genres',[BookController::class,'genres'])->name('audiobooks.genres');
+	Route::get('/audiobooks/{genre}',[BookController::class,'list'])->name('audiobooks.list');
+	Route::get('/test/{id}',[BookController::class,'test']);
 });
 

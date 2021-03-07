@@ -84,7 +84,7 @@ class AudioBookRepository
 	{	
 		return $this->model->whereHas('genre',function($q) use ($genre){
 			$q->where('slug',"$genre");
-		})->get();
+		})->paginate($pageSize);
 	}
 
 	public function query()

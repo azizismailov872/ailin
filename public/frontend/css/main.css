@@ -1,0 +1,21 @@
+.play-btn
+{
+	width: 80px;
+	height: 80px;
+	padding: 0px;
+	margin: 0;
+	background: transparent;
+	border: 7px solid #000;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.play-icn
+{
+	font-size: 32px;
+	margin-left: 5px;
+	padding: 0;
+}
