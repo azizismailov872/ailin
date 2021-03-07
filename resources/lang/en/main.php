@@ -15,4 +15,6 @@ return [
 	'opportunities' => 'Opportunities',
 	'changeLocale' => 'Change language',
 	'openMenu' => 'Open the menu',
+	'logout' => 'Log out',
+	'podcasts' => 'Podcasts',
 ];

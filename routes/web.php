@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Main\MainController;
 use App\Http\Controllers\Auth\AuthController as LoginController;
 use App\Http\Controllers\Audiobook\AudiobookController as BookController;
+use App\Http\Controllers\Podcast\PodcastController as FrontPodcastController;
+use App\Http\Controllers\Training\TrainingController as FrontTrainingController;
+use App\Http\Controllers\Profile\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -124,6 +127,7 @@ Route::group(['middleware' => 'locale'],function(){
 	Route::get('/about',[MainController::class,'about'])->name('about');
 	Route::get('/welcome',[MainController::class,'welcome'])->name('welcome');
 	Route::get('/language',[MainController::class,'language'])->name('language');
+	Route::get('/volunteers',[MainController::class,'volunteers'])->name('volunteers');
 	Route::get('/set-language/{lang}',[MainController::class,'setLanguage'])->name('setLang');
 	//Auth
 	Route::get('/login',[LoginController::class,'showLogin'])->name('showLogin');
@@ -133,5 +137,11 @@ Route::group(['middleware' => 'locale'],function(){
 	Route::get('/audiobooks/genres',[BookController::class,'genres'])->name('audiobooks.genres');
 	Route::get('/audiobooks/{genre}',[BookController::class,'list'])->name('audiobooks.list');
 	Route::get('/test/{id}',[BookController::class,'test']);
+	//Podcast
+	Route::get('/podcasts/genres',[FrontPodcastController::class,'genres'])->name('podcasts.genres');
+	//Training
+	Route::get('/trainings/genres',[FrontTrainingController::class,'genres'])->name('trainings.genres');
+	//Profile
+	Route::get('/profile/history',[ProfileController::class,'history'])->name('profile.history');
 });
 

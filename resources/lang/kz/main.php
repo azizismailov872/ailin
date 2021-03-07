@@ -14,4 +14,6 @@ return [
 	'about' => 'Айлин Тууралы',
 	'opportunities' => 'Мүмкіндіктер',
 	'changeLocale' => 'Тілді өзгертіңіз',
+	'logout' => 'Шығу',
+	'podcasts' => 'Подкасттар',
 ];

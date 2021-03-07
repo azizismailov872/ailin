@@ -14,4 +14,5 @@ return [
 	'about' => 'Дар бораи Айлин',
 	'opportunities' => 'Имкониятҳо',
 	'changeLocale' => 'Забонро иваз кунед',
+	'podcasts' => 'Подкастҳо',
 ];

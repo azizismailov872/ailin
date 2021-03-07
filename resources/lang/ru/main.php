@@ -14,4 +14,5 @@ return [
 	'about' => 'Об Ailin',
 	'opportunities' => 'Возможности',
 	'changeLocale' => 'Изменить язык',
+	'podcasts' => 'Подкасты',
 ];

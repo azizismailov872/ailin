@@ -5,4 +5,5 @@ return [
 	'selectLang' => 'Тілді таңдаңыз',
 	'chooseLanguageOfUse' => 'Пайдалану тілін таңдаңыз',
 	'openMenu' => 'Мәзірді ашыңыз',
+	'logout' => 'Чыгуу',
 ];
