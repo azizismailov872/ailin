@@ -21,6 +21,7 @@
 					<h1 class="text-uppercase h1-1 text-center" aria-label="Выберите язык платформы" tabindex="0">Выберите язык использования</h1>
 				</div>
 				<div class="flex buttons">
+					<a href="{{route('setLang','en')}}" class="col btn btn-primary btn-lg">English</a>
 					<a href="{{route('setLang','ru')}}" class="col btn btn-primary btn-lg">Русский</a>
 					<a href="{{route('setLang','kz')}}" class="col btn btn-primary btn-lg">Казакша</a>
 					<a href="{{route('setLang','tg')}}" class="btn col btn-primary btn-lg">Тоҷикӣ</a>
