@@ -358,7 +358,7 @@ h1.h1-1 {
 
 
 .title-page-block {
-	margin-bottom: 100px
+	margin-bottom: 40px
 }
 
 .btn-primary {
@@ -1205,4 +1205,24 @@ button.player_play_button.stop-icon {
 
 .focus {
 	border-color:red;
+}
+
+.video-js {
+	margin-top: 40px;
+	min-height: 500px;
+	max-width: 100em;
+}
+.video-js .vjs-big-play-button {
+    top: 50%;
+    left: 50%;
+    margin-top: -.81666em;
+    margin-left: -1.5em;
+}
+
+
+.book-page h3 {
+	font-size: var(--default-fs);
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	font-weight: 600;
 }

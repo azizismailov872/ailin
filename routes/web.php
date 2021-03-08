@@ -136,7 +136,7 @@ Route::group(['middleware' => 'locale'],function(){
 	//Audiobooks
 	Route::get('/audiobooks/genres',[BookController::class,'genres'])->name('audiobooks.genres');
 	Route::get('/audiobooks/{genre}',[BookController::class,'list'])->name('audiobooks.list');
-	Route::get('/test/{id}',[BookController::class,'test']);
+	Route::get('/audiobook/{slug}',[BookController::class,'book'])->name('audiobook');
 	//Podcast
 	Route::get('/podcasts/genres',[FrontPodcastController::class,'genres'])->name('podcasts.genres');
 	//Training

@@ -29,9 +29,17 @@ class AudiobookController extends Controller
  		return view('audiobook.list',compact('list','genre'));
     }
 
-    public function test(Request $request)
+    public function book(Request $request)
     {
-        $book = AudioBook::where('id',$request->id)->first();
-        dd($book->getFileLink(app()->getLocale()));
+        $model = AudioBook::where('slug',$request->slug)->first();
+
+        if(!is_null($model) && !empty($model))
+        {
+            return view('audiobook.book',compact('model'));
+        }
+        else
+        {
+            return redirect('/main');
+        }
     }
 }
