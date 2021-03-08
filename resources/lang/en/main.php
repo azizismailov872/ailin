@@ -17,4 +17,8 @@ return [
 	'openMenu' => 'Open the menu',
 	'logout' => 'Log out',
 	'podcasts' => 'Podcasts',
+	'listenDesc' => 'Listen to the description',
+	'genres' => 'Genres',
+	'audiobook' => 'Audiobook',
+	'description' => 'Description',
 ];

@@ -6,4 +6,5 @@ return [
 	'chooseLanguageOfUse' => 'Выберите язык использования',
 	'openMenu' => 'Открыть меню',
 	'logout' => 'Выход',
+	'usingPlatform' => 'Использование платформы',
 ];

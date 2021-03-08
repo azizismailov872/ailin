@@ -16,4 +16,8 @@ return [
 	'changeLocale' => 'Тілді өзгертіңіз',
 	'logout' => 'Шығу',
 	'podcasts' => 'Подкасттар',
+	'listenDesc' => 'Сипаттаманы тыңдаңыз',
+	'genres' => 'Жанрлар',
+	'audiobook' => 'Аудиокітап',
+	'description' => 'Сипаттама',
 ];

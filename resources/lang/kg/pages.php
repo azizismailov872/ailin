@@ -5,4 +5,5 @@ return [
 	'selectLang' => 'Тил тандаңыз',
 	'chooseLanguageOfUse' => 'Колдонуу тилин тандаңыз',
 	'openMenu' => 'Менюну ачыңыз',
+	'usingPlatform' => 'Платформаны колдонуу',
 ];

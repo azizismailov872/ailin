@@ -1,34 +1,42 @@
 @extends('main')
 
-@section('title','Главная страница')
+@section('title',__('main.main'))
 
 @section('content')
-<main role="main" class="container-fluid main-container home-main-div">
+<main role="main" class="container-fluid main-container home-main-div mb-3">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-4 col-xs-12 col-md-4 col-sm-12">
 				<nav class="nav main-nav flex-column">
-				  	<a class="nav-link color-black" href="{{route('index')}}" tabindex="0">ГЛАВНАЯ</a>
-				  	<a class="nav-link color-black" href="#" tabindex="0">ИСТОРИЯ</a>
-				  	<a class="nav-link color-black" href="{{route('audiobooks.genres')}}" tabindex="0">АУДИОКНИГИ</a>
-				  	<a class="nav-link color-black" href="#" tabindex="0">ТРЕНИНГИ</a>
-				  	<a class="nav-link color-black" href="#" tabindex="0">ВОЛОНТЕРЫ</a>
-				  	<a class="nav-link color-black" href="#" tabindex="0" >ВОЗМОЖНОСТИ</a>
-				  	<a class="nav-link color-black" href="{{route('about')}}" tabindex="0">ОБ AILIN</a>
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.main')" href="{{route('index')}}" tabindex="0">@lang('main.main')</a>
+				  	@auth
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.history')" href="{{route('profile.history')}}" tabindex="0">@lang('main.history')</a>
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.logout')" href="{{route('logout')}}" tabindex="0">@lang('main.logout')</a>
+				  	@endauth
+				  	@guest
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.login')" href="{{route('showLogin')}}" tabindex="0">@lang('main.login')</a>
+				  	@endguest
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.changeLocale')" href="{{route('language')}}" tabindex="0">@lang('main.changeLocale')</a>
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.audiobooks')" href="{{route('audiobooks.genres')}}" tabindex="0">@lang('main.audiobooks')</a>
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.trainings')" href="{{route('trainings.genres')}}" tabindex="0">@lang('main.trainings')</a>
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.volunteers')" href="{{route('volunteers')}}" tabindex="0">@lang('main.volunteers')</a>
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.opportunities')" href="{{route('welcome')}}" tabindex="0" >@lang('main.opportunities')</a>
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.about')" href="{{route('about')}}" tabindex="0">@lang('main.about')</a>
 				</nav>
 			</div>
 			<div class="col-8 div-sm-block">
 				<div class="col-12">
-					<h1 class="heading">Использование платформы</h1>
+					<h1 class="heading">@lang('pages.usingPlatform')</h1>
 				</div>
 				<br>
 				<div class="col-8 col-md-8 col-sm-12 col-xs-12">
-					<p alt="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+					<p class="description-play">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 				</div>
-				<div class="col-8 div-sm-block text-center">
-					<img src="{{asset('frontend/images/boton-de-play.png')}}" class="play-main-ico" alt="" loading="lazy">
+				<div class="col-8 d-flex justify-content-center">
+					<button class="play-btn play-description" aria-label="@lang('main.listenDesc')">
+						<i class="fa fa-play play-icn" aria-hidden="true"></i>
+					</button>
 				</div>
-
 			</div>
 		</div>
 	</div>

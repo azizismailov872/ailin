@@ -15,4 +15,8 @@ return [
 	'opportunities' => 'Имкониятҳо',
 	'changeLocale' => 'Забонро иваз кунед',
 	'podcasts' => 'Подкастҳо',
+	'listenDesc' => 'Тавсифро гӯш кунед',
+	'genres' => 'Жанрҳо',
+	'audiobook' => 'Китоби аудиоӣ',
+	'description' => 'Тавсифи',
 ];

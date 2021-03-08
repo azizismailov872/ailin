@@ -15,4 +15,8 @@ return [
 	'opportunities' => 'Возможности',
 	'changeLocale' => 'Изменить язык',
 	'podcasts' => 'Подкасты',
+	'listenDesc' => 'Прослушать описание',
+	'genres' => 'Жанры',
+	'audiobook' => 'Аудиокнига',
+	'description' => 'Описание',
 ];

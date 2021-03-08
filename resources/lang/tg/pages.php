@@ -6,4 +6,5 @@ return [
 	'chooseLanguageOfUse' => 'Забони истифодашударо интихоб кунед',
 	'openMenu' => 'Менюро кушоед',
 	'logout' => 'Баромадгоҳ',
+	'usingPlatform' => 'Бо истифода аз платформа',
 ];

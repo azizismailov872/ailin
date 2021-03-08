@@ -16,4 +16,8 @@ return [
 	'changeLocale' => 'Тилди өзгөртүңүз',
 	'logout' => 'Чыгуу',
 	'podcasts' => 'Подкасттар',
+	'listenDesc' => 'Сүрөттөмөсүн угуңуз',
+	'genres' => 'Жанрлар',
+	'audiobook' => 'Аудиокитеп',
+	'description' => 'Сүрөттөмө',
 ];

@@ -16,4 +16,8 @@ return [
 	'changeLocale' => 'Tilni o\'zgartiring',
 	'logout' => 'Chiqish',
 	'podcasts' => 'Podkastlar',
+	'listenDesc' => 'Tavsifni tinglang',
+	'genres' => 'Janrlar',
+	'audiobook' => 'Audiokitob',
+	'description' => 'Tavsif',
 ];

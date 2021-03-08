@@ -2,18 +2,24 @@
 
 @section('title','Аудиокниги |'.$genre->title)
 
+<?php $locale = app()->getLocale(); ?>
+
 @section('content')
 <main role="main" class="container-fluid main-container home-main-div ">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="row title-page-block">
 				<div class="col-12">
-					<h1 class="display-2 title-page">АУДИОКНИГИ</h1>
+					<h1 class="display-2 title-page text-uppercase" aria-label="@lang('main.audiobooks')">@lang('main.audiobooks')</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item text-uppercase"><a href="{{route('index')}}">Главная</a></li>
-							<li class="breadcrumb-item text-uppercase"><a href="{{route('audiobooks.genres')}}">Аудиокниги</a></li>
-							<li class="breadcrumb-item text-uppercase active" aria-current="page">{{$genre->title}}</li>
+							<li class="breadcrumb-item text-uppercase"><a href="{{route('index')}}" aria-label="@lang('main.main')">@lang('main.main')</a></li>
+							<li class="breadcrumb-item text-uppercase"><a aria-label="@lang('main.audiobooks')" href="{{route('audiobooks.genres')}}">@lang('main.audiobooks')</a></li>
+							@if($locale === 'ru')
+								<li class="breadcrumb-item text-uppercase active" aria-current="page">{{$genre->title}}</li>
+							@else
+								<li class="breadcrumb-item text-uppercase active" aria-current="page">{{$genre->trans[$locale.'_title']}}</li>
+							@endif
 					  	</ol>
 					</nav>
 				</div>
@@ -21,7 +27,11 @@
 			<div class="container-fluid genre">
 				<div class="row">
 					<div class="col-12 text-block">
+						@if($locale === 'ru')
 						<h2 class="text-uppercase">{{$genre->title}}</h2>
+						@else
+						<h2 class="text-uppercase">{{$genre->trans[$locale.'_title']}}</h2>
+						@endif
 					</div>
 					<div class="col-12 genres-wrap">
 						<div class="row">

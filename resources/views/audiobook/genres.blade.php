@@ -8,11 +8,13 @@
 		<div class="row">
 			<div class="row title-page-block">
 				<div class="col-12">
-					<h1 class="display-2 title-page">АУДИОКНИГИ</h1>
+					<h1 aria-label="@lang('main.audiobooks')" class="display-2 title-page text-uppercase">@lang('main.audiobooks')</h1>
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item text-uppercase"><a href="{{route('index')}}">Главная</a></li>
-							<li class="breadcrumb-item text-uppercase active" aria-current="page">Аудиокниги</li>
+							<li class="breadcrumb-item text-uppercase">
+								<a aria-label="@lang('main.main')" href="{{route('index')}}">@lang('main.main')</a>
+							</li>
+							<li aria-label="@lang('main.audiobooks')" class="breadcrumb-item text-uppercase active" aria-current="page">@lang('main.audiobooks')</li>
 					  	</ol>
 					</nav>
 				</div>
@@ -20,14 +22,13 @@
 			<div class="container genre">
 				<div class="row">
 					<div class="col-12 text-block">
-						<h2 class="text-uppercase">жанры</h2>
+						<h2 class="text-uppercase">@lang('main.genres')</h2>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 genres-wrap">
 					<div class="row">
-
 						<div id="myCarousel" data-bs-interval="false" class="carousel slide carousel-dark" data-bs-ride="carousel">
 							<div class="col-2">
 								<a class="carousel-control-prev carousel-link" tabindex="0" href="{{$list->previousPageUrl()}}" role="button" data-bs-slide="prev">

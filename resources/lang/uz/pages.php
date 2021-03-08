@@ -5,4 +5,5 @@ return [
 	'selectLang' => 'Tilni tanlang',
 	'chooseLanguageOfUse' => 'Foydalanish tilini tanlang',
 	'openMenu' => 'Menyuni oching',
+	'usingPlatform' => 'Platformadan foydalanish',
 ];
