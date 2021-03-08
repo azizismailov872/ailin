@@ -8,7 +8,7 @@
 		@elseif($genre->books->count() === 1)
 			<h5 class="genre-qty">1 АУДИОКНИГА</h5>
 		@elseif($genre->books->count() > 1)
-			<h5 class="genre-qty">{{$genre->books->count}} АУДИОКНИГИ</h5>
+			<h5 class="genre-qty">{{$genre->books->count()}} АУДИОКНИГИ</h5>
 		@endif
 	</a>
 </div>
@@ -21,7 +21,7 @@
 		@elseif($genre->books->count() === 1)
 			<h5 class="genre-qty">1 @lang('main.audiobook')</h5>
 		@elseif($genre->books->count() > 1)
-			<h5 class="genre-qty">{{$genre->books->count}} @lang('main.audiobooks')</h5>
+			<h5 class="genre-qty">{{$genre->books->count()}} @lang('main.audiobooks')</h5>
 		@endif
 	</a>
 </div>

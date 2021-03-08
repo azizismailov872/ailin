@@ -1,6 +1,6 @@
 <?php $locale = app()->getLocale(); ?>
 <div class="col genre-block text-center">
-	<a href="#" class="genre-href" data-toggle="modal" data-target="#exampleModal">
+	<a href="#" class="genre-href" data-toggle="modal" data-target="#{{$model->slug}}">
 		@if($locale === 'ru')
 			<h4 class="genre-title">{{$model->title}}</h4>
 			@if(!empty($model->author))
@@ -14,7 +14,7 @@
 		@endif
 	</a>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="{{$model->slug}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   	<div class="modal-dialog modal-xl" role="document">
     	<div class="modal-content forum">
     		<div class="modal-header-forum">
@@ -119,53 +119,3 @@
     	</div>
   	</div>
 </div>
-<script type="text/javascript">
-
-	$('button[id^="playbut_"]').click(function(){
-		$(this).toggleClass("play-icon stop-icon");
-	});
-
-</script>
-<script>
-
-	 $('#playbut_player1').focus(function() {
-
-		$('#oframeplayer1')[0].focus();
-		var keys = {};
-
-		$(document).keydown(function(e) {
-			keys[e.which] = true;
-
-			if (keys[39]) {
-				player1.api('seek','+10')
-			}
-			if (keys[37]) {
-				player1.api('seek','-10')
-			}
-		});
-
-		$(document).keyup(function(e) {
-			delete keys[e.which];
-		});
-	 });
-
-	 $('#playbut_player2').focus(function() {
-	 var keys = {};
-
-	 $(document).keydown(function(e) {
-		 keys[e.which] = true;
-
-		 if (keys[39]) {
-			 player2.api('seek','+10')
-		 }
-		 if (keys[37]) {
-			 player2.api('seek','-10')
-		 }
-	 });
-
-	 $(document).keyup(function(e) {
-		 delete keys[e.which];
-	 });
-	});
-
-</script>
