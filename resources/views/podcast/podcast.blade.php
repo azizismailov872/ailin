@@ -11,7 +11,7 @@
                     <h1 class="display-4 display-sm-4 title-page">{{$model->getTitle()}}</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                        	<li class="breadcrumb-item text-uppercase"><a href="{{route('audiobooks.genres')}}">@lang('main.audiobooks')</a></li>
+                        	<li class="breadcrumb-item text-uppercase"><a href="{{route('audiobooks.genres')}}">@lang('main.podcasts')</a></li>
                             <li class="breadcrumb-item text-uppercase"><a href="{{route('audiobooks.list',$model->genre->slug)}}">{{$model->getGenreTitle()}}</a></li>
                             <li class="breadcrumb-item text-uppercase active" aria-current="page">{{$model->getTitle()}}</li>
                         </ol>
@@ -54,22 +54,6 @@
                         <p class="h4 text-uppercase" tabindex="0">@lang('main.fileMissing')</p>
                         @endif
                     </div>
-                    {{-- <div class="col-12 modal-cat-block">
-                        <h3>Видео</h3>
-                        <div class="block-player">
-                            <div class="col-12 inner-player">
-                                <div class="row">
-                                    <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" poster="" data-setup="{}">
-                                        <source src="nevergonnagiveyouup.mp4" type="video/mp4" />
-                                        <!--<source src="nevergonnagiveyouup.mp4" type="video/webm" />-->
-                                        <p class="vjs-no-js">
-                                            Ваш браузер не поддерживает видео
-                                        </p>
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>

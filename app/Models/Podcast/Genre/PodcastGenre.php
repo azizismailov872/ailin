@@ -18,8 +18,8 @@ class PodcastGenre extends Model
     	return $this->hasOne('App\Models\Podcast\Genre\PodcastGenreTrans','genre_id');
     }
 
-    public function podcast()
+    public function podcasts()
     {
-    	return $this->hasOne('App\Models\Podcast\Podcast','genre_id','id');
+    	return $this->hasMany('App\Models\Podcast\Podcast','genre_id','id');
     }
 }

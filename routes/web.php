@@ -139,6 +139,8 @@ Route::group(['middleware' => 'locale'],function(){
 	Route::get('/audiobook/{slug}',[BookController::class,'book'])->name('audiobook');
 	//Podcast
 	Route::get('/podcasts/genres',[FrontPodcastController::class,'genres'])->name('podcasts.genres');
+	Route::get('/podcasts/{genre}',[FrontPodcastController::class,'list'])->name('podcasts.list');
+	Route::get('/podcast/{slug}',[FrontPodcastController::class,'podcast'])->name('podcast');
 	//Training
 	Route::get('/trainings/genres',[FrontTrainingController::class,'genres'])->name('trainings.genres');
 	//Profile

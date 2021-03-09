@@ -23,6 +23,13 @@ class PodcastRepository
 		return $this->model->query();
 	}
 
+	public function listByGenre($pageSize = 10, $genre)
+	{	
+		return $this->model->whereHas('genre',function($q) use ($genre){
+			$q->where('slug',"$genre");
+		})->paginate($pageSize);
+	}
+
 	public function one($id,$with = null)
 	{
 		if($with)
