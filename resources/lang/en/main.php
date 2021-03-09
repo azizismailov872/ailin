@@ -21,4 +21,8 @@ return [
 	'genres' => 'Genres',
 	'audiobook' => 'Audiobook',
 	'description' => 'Description',
+	'noDescription' => 'No description',
+	'readMore' => 'Read more',
+	'collapse' => 'Collapse',
+	'fileMissing' => 'File is missing',
 ];

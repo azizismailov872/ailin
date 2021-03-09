@@ -20,4 +20,8 @@ return [
 	'genres' => 'Жанрлар',
 	'audiobook' => 'Аудиокітап',
 	'description' => 'Сипаттама',
+	'noDescription' => 'Сипаттама жоқ',
+	'readMore' => 'Ары қарай оқу',
+	'collapse' => 'Құлату',
+	'fileMissing' => 'Файл жоқ',
 ];

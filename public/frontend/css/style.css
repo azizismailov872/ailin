@@ -293,7 +293,7 @@ body {
 	letter-spacing: 0.2em
 }
 ol.breadcrumb li {
-	font-size: 32px;
+	font-size: 28px;
 	letter-spacing: 0.2em
 }
 .breadcrumb-item {
@@ -301,7 +301,7 @@ ol.breadcrumb li {
 }
 .breadcrumb-item a {
 	text-decoration: none;
-	font-size: 32px;
+	font-size: 28px;
 }
 /* Выберите язык использования
 
@@ -342,7 +342,7 @@ h1.h1-1 {
 
 .breadcrumb-item + .breadcrumb-item::before {
     float: left;
-    padding-right: 2rem;
+    padding-right: 1rem;
     color: #6c757d;
     content: url(../images/breadcrumb.svg);
     height: 1em;
@@ -350,10 +350,10 @@ h1.h1-1 {
     margin-top: -0.37em;
 }
 .breadcrumb-item {
-	margin-right: 2rem;
+	margin-right: 1rem;
 }
 .breadcrumb-item:first-child {
-	margin-right: 2.5rem
+	margin-right: 1rem
 }
 
 
@@ -985,7 +985,7 @@ letter-spacing: 0.205em;
 }
 
 #summary p.collapse:not(.show) {
-    height: 112px !important;
+    height: 100%;
     overflow: hidden;
 
     display: -webkit-box;

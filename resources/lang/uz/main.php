@@ -20,4 +20,8 @@ return [
 	'genres' => 'Janrlar',
 	'audiobook' => 'Audiokitob',
 	'description' => 'Tavsif',
+	'noDescription' => 'Tavsif yo\'q',
+	'readMore' => 'Davomini o\'qish',
+	'collapse' => 'Yiqilish',
+	'fileMissing' => 'Fayl yo\‘q',	
 ];

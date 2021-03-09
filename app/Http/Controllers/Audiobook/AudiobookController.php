@@ -32,7 +32,7 @@ class AudiobookController extends Controller
     public function book(Request $request)
     {
         $model = AudioBook::where('slug',$request->slug)->first();
-
+        
         if(!is_null($model) && !empty($model))
         {
             return view('audiobook.book',compact('model'));

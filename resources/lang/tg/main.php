@@ -19,4 +19,8 @@ return [
 	'genres' => 'Жанрҳо',
 	'audiobook' => 'Китоби аудиоӣ',
 	'description' => 'Тавсифи',
+	'noDescription' => 'Тавсиф нест',
+	'readMore' => 'Бештар',
+	'collapse' => 'Хароб шудан',
+	'fileMissing' => 'Файл гум шудааст',
 ];

@@ -19,4 +19,8 @@ return [
 	'genres' => 'Жанры',
 	'audiobook' => 'Аудиокнига',
 	'description' => 'Описание',
+	'noDescription' => 'Нет описания',
+	'readMore' => 'Читать далее',
+	'collapse' => 'Свернуть',
+	'fileMissing' => 'Файл отсутствует',
 ];
