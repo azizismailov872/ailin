@@ -18,8 +18,8 @@ class TrainingGenre extends Model
     	return $this->hasOne('App\Models\Training\Genre\TrainingGenreTrans','genre_id');
     }
 
-    public function training()
+    public function trainings()
     {
-    	return $this->hasOne('App\Models\Training\Training','genre_id','id');
+    	return $this->hasMany('App\Models\Training\Training','genre_id','id');
     }
 }

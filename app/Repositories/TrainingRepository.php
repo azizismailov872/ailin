@@ -30,6 +30,13 @@ class TrainingRepository
 		}
 	}
 
+	public function listByGenre($pageSize = 10, $genre)
+	{	
+		return $this->model->whereHas('genre',function($q) use ($genre){
+			$q->where('slug',"$genre");
+		})->paginate($pageSize);
+	}
+
 	public function create($data,$trans,$fileNames = null)
 	{
 		if(empty($fileNames))

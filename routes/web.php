@@ -143,6 +143,8 @@ Route::group(['middleware' => 'locale'],function(){
 	Route::get('/podcast/{slug}',[FrontPodcastController::class,'podcast'])->name('podcast');
 	//Training
 	Route::get('/trainings/genres',[FrontTrainingController::class,'genres'])->name('trainings.genres');
+	Route::get('/trainings/{genre}',[FrontTrainingController::class,'list'])->name('trainings.list');
+	Route::get('/training/{slug}',[FrontTrainingController::class,'training'])->name('training');
 	//Profile
 	Route::get('/profile/history',[ProfileController::class,'history'])->name('profile.history');
 });
