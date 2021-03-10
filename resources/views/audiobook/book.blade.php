@@ -1,5 +1,5 @@
 @extends('main')
-
+<?php $locale = app()->getLocale(); ?>
 @section('title',$model->getTitle())
 
 @section('content')
@@ -26,8 +26,9 @@
                             <p class="collapse description-play" id="collapseSummary">
                                 {{$model->getDescription()}}
                             </p>
-                            @if($model->getDescription() !== 'Нет описания' && $model->getDescription() !== 'No description')
-                                <a class="collapsed" data-toggle="collapse" href="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary"></a>
+                            @if($model->getDescription() !== 'Нет описания' && $model->getDescription() !== 'No description' && strlen($model->getDescription()) > 50)
+                                <a class="collapsed {{$locale}}" data-toggle="collapse" href="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary">
+                                </a>
                             @endif
                         </div>
                     </div>

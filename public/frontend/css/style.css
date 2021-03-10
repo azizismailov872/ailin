@@ -1006,7 +1006,66 @@ letter-spacing: 0.205em;
     content: 'СВЕРНУТЬ';
     float: right;
 }
+/* tg */
+#summary a.collapsed.tg:after  {
+    content: 'Бештар';
+    float: right;
+    text-transform: uppercase;
+}
 
+#summary a.tg:not(.collapsed):after {
+    content: 'Хароб шудан';
+    float: right;
+    text-transform: uppercase;
+}
+/* en */
+#summary a.collapsed.en:after  {
+    content: 'Read more';
+    float: right;
+    text-transform: uppercase;
+}
+
+#summary a.en:not(.collapsed):after {
+    content: 'Collapse';
+    float: right;
+    text-transform: uppercase;
+}
+/* kg */
+#summary a.collapsed.kg:after  {
+    content: 'Көбүрөөк окуу';
+    float: right;
+    text-transform: uppercase;
+}
+
+#summary a.kg:not(.collapsed):after {
+    content: 'Жыгылуу';
+    float: right;
+    text-transform: uppercase;
+}
+/* Kz */
+#summary a.collapsed.kz:after  {
+    content: 'Ары қарай оқу';
+    float: right;
+    text-transform: uppercase;
+}
+
+#summary a.kz:not(.collapsed):after {
+    content: 'Құлату';
+    float: right;
+    text-transform: uppercase;
+}
+/* Uz */
+#summary a.collapsed.uz:after  {
+    content: 'Davomini o\'qish';
+    float: right;
+    text-transform: uppercase;
+}
+
+#summary a.uz:not(.collapsed):after {
+    content: 'Yiqilish';
+    float: right;
+    text-transform: uppercase;
+}
 
 .audio-track {
     width: 150px;
