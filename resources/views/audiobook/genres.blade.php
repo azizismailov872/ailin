@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title','Аудиокниги | Жанры')
+@section('title',__('main.audiobooks').' | '.__('main.genres'))
 
 @section('content')
 <main role="main" class="container-fluid main-container home-main-div ">

@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title','Подкасты |'.$genre->title)
+@section('title',__('main.podcasts').' |'.$genre->getTitle())
 
 <?php $locale = app()->getLocale(); ?>
 
@@ -15,11 +15,7 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item text-uppercase"><a href="{{route('index')}}" aria-label="@lang('main.main')">@lang('main.main')</a></li>
 							<li class="breadcrumb-item text-uppercase"><a aria-label="@lang('main.podcasts')" href="{{route('podcasts.genres')}}">@lang('main.podcasts')</a></li>
-							@if($locale === 'ru')
-								<li class="breadcrumb-item text-uppercase active" aria-current="page">{{$genre->title}}</li>
-							@else
-								<li class="breadcrumb-item text-uppercase active" aria-current="page">{{$genre->trans[$locale.'_title']}}</li>
-							@endif
+							<li class="breadcrumb-item text-uppercase active" aria-current="page">{{$genre->getTitle()}}</li>
 					  	</ol>
 					</nav>
 				</div>
@@ -27,11 +23,7 @@
 			<div class="container-fluid genre">
 				<div class="row">
 					<div class="col-12 text-block">
-						@if($locale === 'ru')
-						<h2 class="text-uppercase">{{$genre->title}}</h2>
-						@else
-						<h2 class="text-uppercase">{{$genre->trans[$locale.'_title']}}</h2>
-						@endif
+						<h2 class="text-uppercase">{{$genre->getTitle()}}</h2>
 					</div>
 					<div class="col-12 genres-wrap">
 						<div class="row">

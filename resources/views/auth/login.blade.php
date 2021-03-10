@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title',__('main.main'))
+@section('title',__('main.login'))
 
 @section('content')
 <main role="main" class="container-fluid main-container home-main-div">

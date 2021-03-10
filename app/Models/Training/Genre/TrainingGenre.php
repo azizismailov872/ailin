@@ -22,4 +22,24 @@ class TrainingGenre extends Model
     {
     	return $this->hasMany('App\Models\Training\Training','genre_id','id');
     }
+
+    public function getTitle()
+    {
+        $locale = app()->getLocale();
+        if($locale === 'ru')
+        {
+            return $this->title;
+        }
+        else
+        {
+            if(!is_null($this->trans) && !empty($this->trans))
+            {
+                return $this->trans[$locale.'_title'];
+            }
+            else
+            {
+                return 'No title';
+            }
+        }
+    }
 }

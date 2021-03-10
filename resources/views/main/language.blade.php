@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title','Выберите язык')
+@section('title',__('main.changeLocale'))
 
 @section('content')
 	<main role="main" class="container-fluid main-container home-main-div">

@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title','Тренинги')
+@section('title',__('main.trainings').' | '.__('main.genres'))
 
 @section('content')
 <main role="main" class="container-fluid main-container home-main-div ">
