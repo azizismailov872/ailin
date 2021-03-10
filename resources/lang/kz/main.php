@@ -24,4 +24,7 @@ return [
 	'readMore' => 'Ары қарай оқу',
 	'collapse' => 'Құлату',
 	'fileMissing' => 'Файл жоқ',
+	'phone' => 'Телефон',
+	'further' => 'Әрі қарай',
+	'register' => 'тіркеу',
 ];

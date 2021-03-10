@@ -38,7 +38,7 @@ class AuthController extends Controller
     			]);
     		}
     	}
-    	return redirect()->route('showLogin')->withErrors(['register' =>'Заявка на регистрацию подана']);
+    	return redirect()->route('showLogin')->withErrors(['register' => __('messages.registerAppCreated')]);
     }
 
     public function logout()

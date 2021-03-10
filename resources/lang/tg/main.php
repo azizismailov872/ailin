@@ -23,4 +23,7 @@ return [
 	'readMore' => 'Бештар',
 	'collapse' => 'Хароб шудан',
 	'fileMissing' => 'Файл гум шудааст',
+	'phone' => 'Телефон',
+	'further' => 'Минбаъд',
+	'register' => 'Тафтиш кадан',
 ];

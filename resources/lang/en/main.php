@@ -25,4 +25,7 @@ return [
 	'readMore' => 'Read more',
 	'collapse' => 'Collapse',
 	'fileMissing' => 'File is missing',
+	'phone' => 'Phone',
+	'further' => 'Submit',
+	'register' => 'Registration',
 ];

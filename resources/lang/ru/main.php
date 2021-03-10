@@ -23,4 +23,7 @@ return [
 	'readMore' => 'Читать далее',
 	'collapse' => 'Свернуть',
 	'fileMissing' => 'Файл отсутствует',
+	'phone' => 'Телефон',
+	'further' => 'Далее',
+	'register' => 'Регистрация',
 ];

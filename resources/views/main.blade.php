@@ -32,6 +32,7 @@
 	<script src="{{asset('js/frontend/jquery-3.5.1.min.js')}}"></script>
 	<script src="{{asset('js/frontend/jquery-ui.min.js')}}"></script>
 	<script src="{{asset('js/frontend/script.js')}}"></script>
+	<script src="{{asset('js/frontend/hotkeys.js')}}"></script>
 	<script src="{{asset('js/frontend/bootstrap.min.js')}}"></script>
 	<!-- JavaScript Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>

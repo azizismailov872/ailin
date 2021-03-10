@@ -31,7 +31,7 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'phone.required' => 'Введите номер телефона' 
+            'phone.required' => __('errors.enterPhone'), 
         ];
     }
 }

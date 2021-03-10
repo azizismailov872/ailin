@@ -23,5 +23,8 @@ return [
 	'noDescription' => 'Tavsif yo\'q',
 	'readMore' => 'Davomini o\'qish',
 	'collapse' => 'Yiqilish',
-	'fileMissing' => 'Fayl yo\‘q',	
+	'fileMissing' => 'Fayl yo\‘q',
+	'phone' => 'Telefon',
+	'further' => 'Keyinchalik',
+	'register' => 'Belgilanish',	
 ];
