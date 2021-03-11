@@ -175,4 +175,15 @@ class Training extends Model
             }
         }
     }
+
+    public function checkFileExtension()
+    {   
+        $extensions = ['mp3','ogg','wav','MP3','OGG','WAV'];
+        if(in_array(substr($this->ru_file,-3),$extensions))
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

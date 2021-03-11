@@ -142,4 +142,15 @@ class AudioBook extends Model
             }
         }
     }
+
+    public function checkExtension()
+    {   
+        $extensions = ['mp3','ogg','wav','MP3','OGG','WAV'];
+        if(in_array(substr($this->ru_file,-3),$extensions))
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
