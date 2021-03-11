@@ -19,3 +19,16 @@
 	margin-left: 5px;
 	padding: 0;
 }
+
+.small-text
+{
+	font-size: 22px;
+	font-family: "Roboto",sans-serif;
+	font-style: normal;
+	color: #000;
+}
+
+.small-text.bold
+{
+	font-weight: bold;
+}

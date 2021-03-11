@@ -579,20 +579,24 @@ color: #000000;
     display: inline-block;
     transition: .3s transform ease-in-out;
 }
-.collapse-link.uncollapsed img {
+/* .collapse-link.uncollapsed img {
   transform: rotate(0deg);
-}
+} */
 .collapse-link.collapsed img {
   transform: rotate(0deg);
 }
+
+.collapse-link[aria-expanded="false"] img {
+  transform: rotate(90deg);
+}
+
+.collapse-link[aria-expanded="true"] img {
+  transform: rotate(0deg);
+}
+
 .collapse-pad {
 	height: 30px
 }
-
-
-
-
-
 
 .text-block {
 	padding-bottom: 60px;
@@ -744,8 +748,8 @@ opacity: 1;
     box-shadow: 0 0 0 0;
 }
 .collapse-block {
-	padding-top: 3rem;
-	padding-bottom: 5rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 .collapse-block img {
 	width: 4rem;

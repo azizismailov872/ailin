@@ -20,9 +20,9 @@ class History extends Model
     	return $this->morphTo();
     }
 
-    public function audiobooks()
+    public function audiobook()
     {
-    	return $this->hasMany(AudioBook::class,'id','historyable_id');
+    	return $this->hasOne(AudioBook::class,'id','historyable_id');
     }
 
     public function trainings()

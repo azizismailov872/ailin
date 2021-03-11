@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
+use App\Models\History\History;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,6 +13,8 @@ class ProfileController extends Controller
     {	
     	$user = Auth::user();
 
-    	return view('profile.history');
+    	$histories = $user->histories;
+
+    	return view('profile.history',compact('user','histories'));
     }
 }

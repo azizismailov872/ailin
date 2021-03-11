@@ -8,10 +8,10 @@
 	<!-- Custom styles for this template -->
 	<link href="{{asset('frontend/css/bootstrap.css')}}" rel="stylesheet">
 	<link href="{{asset('frontend/css/bootstrap-grid.css')}}" rel="stylesheet">
-	<link rel="stylesheet" href="{{asset('frontend/css/video-js.css')}}">
-	<link rel="stylesheet" href="{{asset('frontend/css/videojs-sea.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style_sm.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/video-js.css')}}">
+	<link rel="stylesheet" href="{{asset('frontend/css/videojs-sea.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 	<link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
 	<script>
@@ -33,11 +33,10 @@
 	<script src="{{asset('js/frontend/jquery-ui.min.js')}}"></script>
 	<script src="{{asset('js/frontend/script.js')}}"></script>
 	<script src="{{asset('js/frontend/hotkeys.js')}}"></script>
-	<script src="{{asset('js/frontend/bootstrap.min.js')}}"></script>
 	<!-- JavaScript Bundle with Popper -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="{{asset('js/frontend/bootstrap.min.js')}}"></script>
 	{{-- Custom --}}
 	<script src="{{asset('js/frontend/phonenumber.js')}}"></script>
 	<script src="{{asset('js/frontend/videojs.js')}}"></script>
