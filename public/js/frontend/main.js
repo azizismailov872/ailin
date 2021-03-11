@@ -29,6 +29,10 @@ $(function(){
 		let text = $('.description-play').text();
 		speak(text);
 	});
+
+	$('.player_play_button.play-icon').on('click',function(){
+		$(this).toggleClass('stop-icon');
+	});
 });
 
 function getLang()

@@ -35,4 +35,14 @@ class History extends Model
         return ($this->historyable_type === 'App\Models\Audiobook\Audiobook') ? true : false;
     }
 
+    public function getTime()
+    {
+        if(!is_null($this->time) && !empty($this->time))
+        {
+            return $this->time;
+        }
+
+        return '0';
+    }
+
 }

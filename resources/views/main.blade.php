@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="{{asset('frontend/css/videojs-sea.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 	<link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
+	<script src="{{asset('js/frontend/jquery-3.5.1.min.js')}}"></script>
 	<script>
 		document.getElementById('reg-button-1').onclick = function() {
 		  document.getElementById('reg-block-1').classList.toggle('hidden');
@@ -29,7 +30,6 @@
 	@include('components/nav')
 	@include('components/menu')
 	@yield('content')
-	<script src="{{asset('js/frontend/jquery-3.5.1.min.js')}}"></script>
 	<script src="{{asset('js/frontend/jquery-ui.min.js')}}"></script>
 	<script src="{{asset('js/frontend/script.js')}}"></script>
 	<script src="{{asset('js/frontend/hotkeys.js')}}"></script>
