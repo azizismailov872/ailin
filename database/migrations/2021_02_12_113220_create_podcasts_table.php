@@ -19,7 +19,7 @@ class CreatePodcastsTable extends Migration
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->string('author')->nullable();
-            $table->string('ru_file_link')->nullable();
+            $table->text('ru_file_link')->nullable();
             $table->string('ru_file')->nullable();
             $table->bigInteger('genre_id')->unsigned();
             $table->foreign('genre_id')->references('id')->on('podcast_genres');
