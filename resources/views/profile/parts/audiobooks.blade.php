@@ -19,6 +19,16 @@
                             <div id="player{{$history->audiobook->id}}" class="playerjs" title="123"></div>
                             <script>
                                 var player{{$history->audiobook->id}} = new Playerjs({start:{{$history->getTime()}},id: "player{{$history->audiobook->id}}", file: "{{$history->audiobook->getFileLink()}}"});
+                                @auth
+                                    setInterval(function(){
+                                        let time = player{{$history->audiobook->id}}.api('time');
+                                        if(time !== 0)
+                                        {   
+                                            let type = 'audiobook';
+                                            saveHistory(time,type,{{$history->audiobook->id}},"{{route('profile.saveHistory')}}");
+                                        }
+                                    },180000);
+                                @endauth
                             </script>
                             <script>
                                 $('#playbut_player{{$history->audiobook->id}}').focus(function() {

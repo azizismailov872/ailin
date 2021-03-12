@@ -19,6 +19,16 @@
                             <div id="player{{$history->podcast->id}}" class="playerjs" title="123"></div>
                             <script>
                                 var player{{$history->podcast->id}} = new Playerjs({start:{{$history->getTime()}},id: "player{{$history->podcast->id}}", file: "{{$history->podcast->getFileLink()}}"});
+                                @auth
+                                    setInterval(function(){
+                                        let time = player{{$history->podcast->id}}.api('time');
+                                        if(time !== 0)
+                                        {   
+                                            let type = 'podcast';
+                                            saveHistory(time,type,{{$history->podcast->id}},"{{route('profile.saveHistory')}}");
+                                        }
+                                    },180000);
+                                @endauth
                             </script>
                             <script>
                                 $('#playbut_player{{$history->podcast->id}}').focus(function() {
