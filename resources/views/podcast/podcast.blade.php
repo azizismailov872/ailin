@@ -46,7 +46,7 @@
 									<button onclick="player1.api('toggle'); " id="playbut_player1"  class="player_play_button play-icon"></button>
 									<div id="player1" class="playerjs" title="123"></div>
 									<script>
-										 var player1 = new Playerjs({id:"player1", file:"{{$model->getFileLink()}}"});
+										 var player1 = new Playerjs({start: {{$start}} ,id:"player1", file:"{{$model->getFileLink()}}"});
 										  @auth
                                             setInterval(function(){
                                                 let time = player1.api('time');

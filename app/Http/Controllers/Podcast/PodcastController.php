@@ -8,6 +8,7 @@ use App\Models\Podcast\Podcast;
 use App\Repositories\PodcastGenreRepository;
 use App\Repositories\PodcastRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PodcastController extends Controller
 {
@@ -35,9 +36,24 @@ class PodcastController extends Controller
     {
         $model = Podcast::where('slug',$request->slug)->first();
 
+        $start = '0';
+
+        if(Auth::check())
+        {
+            $history = Auth::user()->histories()->where([
+                'historyable_type' => Podcast::class,
+                'historyable_id' => $model->id
+            ])->first();
+
+            if(!is_null($history) && !empty($history))
+            {
+                $start = $history->getTime();
+            }
+        }
+
         if(!is_null($model) && !empty($model))
         {
-            return view('podcast.podcast',compact('model'));
+            return view('podcast.podcast',compact('model','start'));
         }
 
         return redirect('/main');
