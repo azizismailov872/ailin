@@ -24,6 +24,9 @@
 	<script type="text/javascript">
 		var mas = []
 	</script>
+	@auth
+	<script src="{{asset('js/frontend/history.js')}}"></script>
+	@endauth
 	<title>@yield('title')</title>
 </head>
 <body>

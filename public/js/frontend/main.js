@@ -17,6 +17,7 @@ $(function(){
             type:"GET",
             success: function(response) {
                 $('body').html(response);
+                speak(getPaginationMessage());
             },
             error: function(response)
             {
@@ -47,6 +48,36 @@ function getLang()
 		return 'ru-RU';
 	}
 
+}
+
+function getPaginationMessage()
+{
+	let language = $('html').attr('lang');
+
+	if(language === 'en')
+	{
+		return 'Next page';
+	}
+	else if(language === 'ru')
+	{
+		return 'Следующая страница';
+	}
+	else if(language === 'kz')
+	{
+		return 'Келесі бет';
+	}
+	else if(language === 'uz')
+	{
+		return 'Keyingi sahifa';
+	}
+	else if(language === 'kg')
+	{
+		return 'Кийинки бет';
+	}
+	else if(language === 'tg')
+	{
+		return 'Саҳифаи оянда';
+	}
 }
 
 function speak(text) {

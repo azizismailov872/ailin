@@ -147,5 +147,6 @@ Route::group(['middleware' => 'locale'],function(){
 	Route::get('/training/{slug}',[FrontTrainingController::class,'training'])->name('training');
 	//Profile
 	Route::get('/profile/history',[ProfileController::class,'history'])->name('profile.history');
+	Route::post('/profile/save-history',[ProfileController::class,'saveHistory'])->name('profile.saveHistory');
 });
 
