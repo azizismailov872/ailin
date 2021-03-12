@@ -3,6 +3,7 @@
 namespace App\Models\History;
 
 use App\Models\AudioBook\AudioBook;
+use App\Models\Podcast\Podcast;
 use App\Models\Training\Training;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -25,9 +26,14 @@ class History extends Model
     	return $this->hasOne(AudioBook::class,'id','historyable_id');
     }
 
-    public function trainings()
+    public function podcast()
     {
-    	return $this->hasMany(Training::class,'id','historyable_id');
+        return $this->hasOne(Podcast::class,'id','historyable_id');
+    }
+
+    public function training()
+    {
+    	return $this->hasOne(Training::class,'id','historyable_id');
     }
 
     public function isAudiobook()

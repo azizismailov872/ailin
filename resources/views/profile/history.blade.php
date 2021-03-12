@@ -19,6 +19,7 @@
             <div class="row">
                 <div class="col-12 col-xs-12 col-sm-12 col-md-12 text-uppercase">
                     @include('profile.parts.audiobooks',['histories' => $histories])
+                    @include('profile.parts.podcasts',['histories' => $histories])
                 </div>
             </div>
         </div>
