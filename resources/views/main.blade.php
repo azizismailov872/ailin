@@ -8,10 +8,10 @@
 	<!-- Custom styles for this template -->
 	<link href="{{asset('frontend/css/bootstrap.css')}}" rel="stylesheet">
 	<link href="{{asset('frontend/css/bootstrap-grid.css')}}" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style_sm.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/video-js.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/css/videojs-sea.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('frontend/css/style_sm.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 	<link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
 	<script src="{{asset('js/frontend/jquery-3.5.1.min.js')}}"></script>

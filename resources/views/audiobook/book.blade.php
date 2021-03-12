@@ -46,7 +46,17 @@
 									<button onclick="player1.api('toggle'); " id="playbut_player1"  class="player_play_button play-icon"></button>
 									<div id="player1" class="playerjs" title="123"></div>
 									<script>
-										 var player1 = new Playerjs({id:"player1", file:"{{$model->getFileLink()}}"});
+										var player1 = new Playerjs({start: {{$start}} ,id:"player1", file:"{{$model->getFileLink()}}"});
+                                        @auth
+                                            setInterval(function(){
+                                                let time = player1.api('time');
+                                                if(time !== 0)
+                                                {   
+                                                    let type = 'audiobook';
+                                                    saveHistory(time,type,{{$model->id}},"{{route('profile.saveHistory')}}");
+                                                }
+                                            },180000);
+                                        @endauth
 									</script>
 								</div>
 							</div>
@@ -55,34 +65,11 @@
                         <p class="h4 text-uppercase" tabindex="0">@lang('main.fileMissing')</p>
                         @endif
                     </div>
-                    {{-- <div class="col-12 modal-cat-block">
-                        <h3>Видео</h3>
-                        <div class="block-player">
-                            <div class="col-12 inner-player">
-                                <div class="row">
-                                    <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" poster="" data-setup="{}">
-                                        <source src="nevergonnagiveyouup.mp4" type="video/mp4" />
-                                        <!--<source src="nevergonnagiveyouup.mp4" type="video/webm" />-->
-                                        <p class="vjs-no-js">
-                                            Ваш браузер не поддерживает видео
-                                        </p>
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
     </div>
 </main>
-<script type="text/javascript">
-
-	$('button[id^="playbut_"]').click(function(){
-		$(this).toggleClass("play-icon stop-icon");
-	});
-
-</script>
 <script>
 
 	 $('#playbut_player1').focus(function() {

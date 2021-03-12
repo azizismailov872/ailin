@@ -31,7 +31,7 @@ $(function(){
 		speak(text);
 	});
 
-	$('.player_play_button.play-icon').on('click',function(){
+	$('.player_play_button').on('click',function(){
 		$(this).toggleClass('stop-icon');
 	});
 });
