@@ -67,6 +67,10 @@
                                             Ваш браузер не поддерживает видео
                                         </p>
                                     </video>
+                                    <script>
+                                        let videoPlayer = document.getElementById('my-video');
+                                        console.log(videoPlayer.currentTime);
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -77,13 +81,6 @@
         </div>
     </div>
 </main>
-<script type="text/javascript">
-
-	$('button[id^="playbut_"]').click(function(){
-		$(this).toggleClass("play-icon stop-icon");
-	});
-
-</script>
 <script>
 
 	 $('#playbut_player1').focus(function() {

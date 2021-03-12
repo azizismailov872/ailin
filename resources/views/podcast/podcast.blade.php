@@ -47,6 +47,16 @@
 									<div id="player1" class="playerjs" title="123"></div>
 									<script>
 										 var player1 = new Playerjs({id:"player1", file:"{{$model->getFileLink()}}"});
+										  @auth
+                                            setInterval(function(){
+                                                let time = player1.api('time');
+                                                if(time !== 0)
+                                                {   
+                                                    let type = 'podcast';
+                                                    saveHistory(time,type,{{$model->id}},"{{route('profile.saveHistory')}}");
+                                                }
+                                            },180000);
+                                        @endauth
 									</script>
 								</div>
 							</div>
@@ -60,13 +70,6 @@
         </div>
     </div>
 </main>
-<script type="text/javascript">
-
-	$('button[id^="playbut_"]').click(function(){
-		$(this).toggleClass("play-icon stop-icon");
-	});
-
-</script>
 <script>
 
 	 $('#playbut_player1').focus(function() {

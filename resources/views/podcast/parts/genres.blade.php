@@ -1,7 +1,7 @@
 <?php $locale = app()->getLocale() ?>
 @if($locale === 'ru')
 <div class="col genre-block text-center">
-	<a href="{{route('audiobooks.list',$genre->slug)}}" class="genre-href">
+	<a href="{{route('podcasts.list',$genre->slug)}}" class="genre-href">
 		<h4 class="genre-title">{{$genre->title}}</h4>
 		@if($genre->podcasts->count() === 0)
 			<h5 class="genre-qty text-uppercase">0 подкастов</h5>

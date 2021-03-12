@@ -14,7 +14,7 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item text-uppercase"><a href="{{route('index')}}" aria-label="@lang('main.main')">@lang('main.main')</a></li>
-							<li class="breadcrumb-item text-uppercase"><a aria-label="@lang('main.trainings')" href="{{route('trainings.genres')}}">@lang('main.audiobooks')</a></li>
+							<li class="breadcrumb-item text-uppercase"><a aria-label="@lang('main.trainings')" href="{{route('trainings.genres')}}">@lang('main.trainings')</a></li>
 							<li class="breadcrumb-item text-uppercase active" aria-current="page">{{$genre->getTitle()}}</li>
 					  	</ol>
 					</nav>

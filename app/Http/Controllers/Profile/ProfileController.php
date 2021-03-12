@@ -31,15 +31,15 @@ class ProfileController extends Controller
 
    		if(!is_null($request->type))
    		{
-   			if($request->type = 'audiobook')
+   			if($request->type === 'audiobook')
    			{
    				$type = AudioBook::class;
    			}
-   			elseif($request->type = 'podcast')
+   			elseif($request->type === 'podcast')
    			{
    				$type = Podcast::class;
    			}
-   			elseif($request->type = 'training')
+   			elseif($request->type === 'training')
    			{
    				$type = Training::class;
    			}
