@@ -17,7 +17,7 @@ class TrainingController extends Controller
     {
     	$pageSize = $request->pageSize ? $request->pageSize : 2;
 
-    	$list = $repository->list($pageSize);
+    	$list = $repository->query()->has('trainings')->paginate($pageSize);
 
     	return view('training.genres',compact('list'));
     }

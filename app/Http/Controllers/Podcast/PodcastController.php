@@ -16,7 +16,7 @@ class PodcastController extends Controller
    	{	
    		$pageSize = $request->pageSize ? $request->pageSize : 2;
 
-   		$list = $repository->list($pageSize);
+   		$list = $repository->query()->has('podcasts')->paginate($pageSize);
 
    		return view('podcast.genres',compact('list'));
    	}
