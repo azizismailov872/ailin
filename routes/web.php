@@ -127,8 +127,9 @@ Route::group(['middleware' => 'locale'],function(){
 	Route::get('/about',[MainController::class,'about'])->name('about');
 	Route::get('/welcome',[MainController::class,'welcome'])->name('welcome');
 	Route::get('/language',[MainController::class,'language'])->name('language');
-	Route::get('/volunteers',[MainController::class,'volunteers'])->name('volunteers');
+	Route::get('/volunteers',[MainController::class,'showVolunteers'])->name('showVolunteers');
 	Route::get('/set-language/{lang}',[MainController::class,'setLanguage'])->name('setLang');
+	Route::post('/volunteers',[MainController::class,'volunteers'])->name('volunteers');
 	//Auth
 	Route::get('/login',[LoginController::class,'showLogin'])->name('showLogin');
 	Route::post('/login',[LoginController::class,'login'])->name('login');

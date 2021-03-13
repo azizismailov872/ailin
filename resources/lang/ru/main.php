@@ -29,4 +29,5 @@ return [
 	'logout' => 'Выход',
 	'videoFormat' => 'Видеоформат',
 	'video' => 'Видео',
+	'submit' => 'Отправить',
 ];

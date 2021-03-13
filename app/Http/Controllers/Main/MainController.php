@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Volunteer\SendRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -38,9 +39,23 @@ class MainController extends Controller
         return redirect()->route('index');
     }
 
-    public function volunteers()
+    public function showVolunteers()
     {
+        return view('main.volunteers');
+    }
 
+    public function volunteers(SendRequest $request)
+    {
+        $phone = $request->phone;
+
+        if(!is_null($phone) && !empty($phone))
+        {
+            VolunteerApplication::create([
+                'phone' => $phone,
+                'status' => 1,
+            ]);
+        }
+        return redirect()->route('volunteers')->withErrors(['register' => __('messages.registerAppCreated')]);
     }
 
     public function about()

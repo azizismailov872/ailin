@@ -29,4 +29,5 @@ return [
 	'register' => 'тіркеу',
 	'videoFormat' => 'Бейне форматы',
 	'video' => 'Бейне',
+	'submit' => 'Хат жіберу',
 ];

@@ -28,5 +28,6 @@ return [
 	'further' => 'Keyinchalik',
 	'register' => 'Belgilanish',
 	'videoFormat' => 'Video formati',
-	'video' => 'Video',	
+	'video' => 'Video',
+	'submit' => 'Xabar yuboring',	
 ];

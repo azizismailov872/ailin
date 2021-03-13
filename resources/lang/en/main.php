@@ -30,4 +30,5 @@ return [
 	'register' => 'Registration',
 	'videoFormat' => 'Video format',
 	'video' => 'Video',
+	'submit' => 'Sibmit',
 ];

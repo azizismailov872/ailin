@@ -20,7 +20,7 @@
 				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.audiobooks')" href="{{route('audiobooks.genres')}}" tabindex="0">@lang('main.audiobooks')</a>
 				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.podcasts')" href="{{route('podcasts.genres')}}" tabindex="0">@lang('main.podcasts')</a>
 				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.trainings')" href="{{route('trainings.genres')}}" tabindex="0">@lang('main.trainings')</a>
-				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.volunteers')" href="{{route('volunteers')}}" tabindex="0">@lang('main.volunteers')</a>
+				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.volunteers')" href="{{route('showVolunteers')}}" tabindex="0">@lang('main.volunteers')</a>
 				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.opportunities')" href="{{route('welcome')}}" tabindex="0" >@lang('main.opportunities')</a>
 				  	<a class="nav-link color-black text-uppercase" aria-label="@lang('main.about')" href="{{route('about')}}" tabindex="0">@lang('main.about')</a>
 				</nav>

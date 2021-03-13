@@ -29,7 +29,7 @@
 	   		<a class="text-uppercase" aria-label="@lang('main.podcasts')" href="{{route('podcasts.genres')}}">@lang('main.podcasts')</a>
 	   	</li>
 	   	<li>
-	   		<a class="text-uppercase" aria-label="@lang('main.volunteers')" href="{{route('volunteers')}}">@lang('main.volunteers')</a>
+	   		<a class="text-uppercase" aria-label="@lang('main.volunteers')" href="{{route('showVolunteers')}}">@lang('main.volunteers')</a>
 	   	</li>
 	   	<li>
 	   		<a class="text-uppercase" aria-label="@lang('main.opportunities')" href="{{route('welcome')}}">@lang('main.opportunities')</a>
