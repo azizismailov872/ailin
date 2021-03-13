@@ -38,7 +38,7 @@
 						</button>
                     </div>
                     <div class="col-12 modal-cat-block">
-                        <h3>@lang('main.audiobooks')</h3>
+                        <h3>@lang('main.podcasts')</h3>
                         @if(!is_null($model->getFileLink()) && strlen($model->getFileLink()) > 2)
                         <div class="block-player">
 							<div class="col-6 inner-player">

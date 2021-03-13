@@ -5,4 +5,5 @@ return [
 	'noneAudiobooks' => 'Нет аудиокниг',
 	'nonePodcasts' => 'Нет подкастов',
 	'noneTrainings' => 'Нет тренингов',
+	'noneGenres' => 'Нет жанров',
 ];

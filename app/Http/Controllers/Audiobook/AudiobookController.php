@@ -14,9 +14,9 @@ class AudiobookController extends Controller
 {
     public function genres(Request $request,AudioBookGenreRepository $repository)
     {	
-    	$pageSize = $request->pageSize ? $request->pageSize : 2;
+    	$pageSize = $request->pageSize ? $request->pageSize : 9;
 
-    	$list = $repository->list($pageSize);
+    	$list = $repository->query()->has('books')->paginate($pageSize);
 
     	return view('audiobook.genres',compact('list'));
     }

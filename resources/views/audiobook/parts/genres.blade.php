@@ -13,7 +13,7 @@
 	</a>
 </div>
 @else
-<div class="col genre-block text-center">
+<div class="col wrap genre-block text-center">
 	<a href="{{route('audiobooks.list',$genre->slug)}}" class="genre-href">
 		<h4 class="genre-title">{{$genre->trans[$locale.'_title']}}</h4>
 		@if($genre->books->count() === 0)

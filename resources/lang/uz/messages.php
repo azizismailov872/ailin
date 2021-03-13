@@ -5,4 +5,5 @@ return [
 	'noneAudiobooks' => 'Audiokitoblar yo‘q',
 	'nonePodcasts' => 'Podkastlar yo‘q',
 	'noneTrainings' => 'Treninglar yo\'q',
+	'noneGenres' => 'Janrlar yo\'q',
 ];

@@ -5,4 +5,5 @@ return [
 	'noneAudiobooks' => 'Китоби аудиоӣ нест',
 	'nonePodcasts' => 'Подкастҳо нестанд',
 	'noneTrainings' => 'Тренингҳо нестанд',
+	'noneGenres' => 'Жанрҳои нест',
 ];
