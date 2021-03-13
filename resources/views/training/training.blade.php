@@ -37,7 +37,7 @@
 						</button>
                     </div>
                     <div class="col-12 modal-cat-block">
-                        <h3>@lang('main.audiobooks')</h3>
+                        <h3>@lang('main.trainings')</h3>
                         @if(!is_null($model->getFileLink()) && strlen($model->getFileLink()) > 2)
                         <div class="block-player">
 							<div class="col-6 inner-player">
@@ -45,7 +45,17 @@
 									<button onclick="player1.api('toggle'); " id="playbut_player1"  class="player_play_button play-icon"></button>
 									<div id="player1" class="playerjs" title="123"></div>
 									<script>
-										 var player1 = new Playerjs({id:"player1", file:"{{$model->getFileLink()}}"});
+										 var player1 = new Playerjs({start: {{$start}},id:"player1", file:"{{$model->getFileLink()}}"});
+                                         @auth
+                                            setInterval(function(){
+                                                let time = player1.api('time');
+                                                if(time !== 0 && time > 1)
+                                                {   
+                                                    let type = 'training';
+                                                    saveHistory(time,type,{{$model->id}},"{{route('profile.saveHistory')}}");
+                                                }
+                                            },60000);
+                                        @endauth
 									</script>
 								</div>
 							</div>
@@ -56,20 +66,29 @@
                     </div>
                     @if(!is_null($model->getVideoLink()) && strlen($model->getVideoLink()) > 0)
                     <div class="col-12 modal-cat-block">
-                        <h3>Видеоформат</h3>
+                        <h3>@lang('main.videoFormat')</h3>
                         <div class="block-player">
                             <div class="col-12 inner-player">
                                 <div class="row">
                                     <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" poster="" data-setup="{}">
-                                        <source src="{{$model->getVideoLink()}}" type="video/mp4" />
+                                        <source src="{{$model->getVideoLink()}}#t={{$videoStart}}" type="video/mp4" />
                                         <!--<source src="nevergonnagiveyouup.mp4" type="video/webm" />-->
                                         <p class="vjs-no-js">
                                             Ваш браузер не поддерживает видео
                                         </p>
                                     </video>
                                     <script>
-                                        let videoPlayer = document.getElementById('my-video');
-                                        console.log(videoPlayer.currentTime);
+                                        @auth
+                                            let videoPlayer = document.getElementById('my-video');
+                                            setInterval(function(){
+                                                let time = videoPlayer.currentTime;
+                                                if(time !== 0 && time > 1)
+                                                {   
+                                                    let type = 'video';
+                                                    saveHistory(time,type,{{$model->video->id}},"{{route('profile.saveHistory')}}");
+                                                }
+                                            },60000);
+                                        @endauth
                                     </script>
                                 </div>
                             </div>

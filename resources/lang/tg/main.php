@@ -27,4 +27,6 @@ return [
 	'further' => 'Минбаъд',
 	'register' => 'Тафтиш кадан',
 	'logout' => 'Баромадгоҳ',
+	'videoFormat' => 'Формати видео',
+	'video' => 'Видео',
 ];

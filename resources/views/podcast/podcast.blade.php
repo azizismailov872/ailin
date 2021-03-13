@@ -50,12 +50,12 @@
 										  @auth
                                             setInterval(function(){
                                                 let time = player1.api('time');
-                                                if(time !== 0)
+                                                if(time !== 0 && time > 1)
                                                 {   
                                                     let type = 'podcast';
                                                     saveHistory(time,type,{{$model->id}},"{{route('profile.saveHistory')}}");
                                                 }
-                                            },180000);
+                                            },60000);
                                         @endauth
 									</script>
 								</div>

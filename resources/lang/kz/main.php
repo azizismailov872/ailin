@@ -27,4 +27,6 @@ return [
 	'phone' => 'Телефон',
 	'further' => 'Әрі қарай',
 	'register' => 'тіркеу',
+	'videoFormat' => 'Бейне форматы',
+	'video' => 'Бейне',
 ];

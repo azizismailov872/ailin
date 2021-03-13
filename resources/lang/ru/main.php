@@ -27,4 +27,6 @@ return [
 	'further' => 'Далее',
 	'register' => 'Регистрация',
 	'logout' => 'Выход',
+	'videoFormat' => 'Видеоформат',
+	'video' => 'Видео',
 ];

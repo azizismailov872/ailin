@@ -28,4 +28,6 @@ return [
 	'phone' => 'Phone',
 	'further' => 'Submit',
 	'register' => 'Registration',
+	'videoFormat' => 'Video format',
+	'video' => 'Video',
 ];

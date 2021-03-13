@@ -7,6 +7,7 @@ use App\Models\AudioBook\AudioBook;
 use App\Models\History\History;
 use App\Models\Podcast\Podcast;
 use App\Models\Training\Training;
+use App\Models\Training\TrainingVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,9 +17,20 @@ class ProfileController extends Controller
     {	
     	$user = Auth::user();
 
-    	$histories = $user->histories;
+    	$bookHistories = $user->histories()->where('historyable_type',AudioBook::class)->get();
 
-    	return view('profile.history',compact('user','histories'));
+        $podcastHistories = $user->histories()->where('historyable_type',Podcast::class)->get();
+
+        $trainingHistories = $user->histories()->where('historyable_type',Training::class)->get();
+
+        $trainingVideoHistories = $user->histories()->where('historyable_type',TrainingVideo::class)->get();
+
+    	return view('profile.history',compact(['user',
+            'bookHistories',
+            'podcastHistories',
+            'trainingHistories',
+            'trainingVideoHistories'
+        ]));
     }
 
    	public function saveHistory(Request $request)
@@ -43,6 +55,10 @@ class ProfileController extends Controller
    			{
    				$type = Training::class;
    			}
+        elseif($request->type === 'video')
+        {
+            $type = TrainingVideo::class;
+        }
    		}
 
    		if(!is_null($user))

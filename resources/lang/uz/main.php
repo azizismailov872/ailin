@@ -26,5 +26,7 @@ return [
 	'fileMissing' => 'Fayl yo\‘q',
 	'phone' => 'Telefon',
 	'further' => 'Keyinchalik',
-	'register' => 'Belgilanish',	
+	'register' => 'Belgilanish',
+	'videoFormat' => 'Video formati',
+	'video' => 'Video',	
 ];
