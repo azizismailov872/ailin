@@ -17,6 +17,7 @@ $(function(){
             type:"GET",
             success: function(response) {
                 $('body').html(response);
+                window.history.pushState({},null,url);
                 speak(getPaginationMessage());
             },
             error: function(response)
