@@ -27,16 +27,25 @@
 								- @lang('pages.studyMaterialHelp')
 							</p>
 						</div>
-						<div class="col-12 title-input">
-							<h2 class="font-48px text-none">@lang('pages.enterPhone')</h2>
-							<p class="text-desc-input text-none">@lang('pages.contactLater')</p>
-						</div>
-						<div class="col-7 col-xs-12 col-sm-8 col-md-7 buttons text-right">
-							<div class="input-group vol-input col-10 ">
-							  	<input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-							  	<button type="submit" class="btn btn-secondary text-uppercase">@lang('main.submit')</button>
+						<form action="{{route('volunteers')}}" method="POST">
+							<div class="col-12 title-input">
+								<h2 class="font-48px text-none">@lang('pages.enterPhone')</h2>
+								<p class="text-desc-input text-none">@lang('pages.contactLater')</p>
 							</div>
-						</div>
+							@if($errors->has('created'))
+							<div class="col-12">
+								<div class="alert alert-success" tabindex="1" role="alert">
+									<span>{{$errors->first('created')}}</span>
+								</div>
+							</div>
+							@endif
+							<div class="col-7 col-xs-12 col-sm-8 col-md-7 buttons text-right">
+								<div class="input-group vol-input col-10 ">
+								  	<input name="phone" id="phoneNumber" value="{{old('phone')}}" type="text" class="form-control" aria-label="@lang('main.phone')" aria-describedby="basic-addon1">
+								  	<button type="submit" class="btn btn-secondary text-uppercase">@lang('main.submit')</button>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

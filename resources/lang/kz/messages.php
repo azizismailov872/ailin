@@ -6,4 +6,5 @@ return [
 	'nonePodcasts' => 'Подкаст жоқ',
 	'noneTrainings' => 'Тренингтер жоқ',
 	'noneGenres' => 'Жанрлар жоқ',
+	'volunteerAppCreated' => 'Өтінім сәтті жіберілді',
 ];

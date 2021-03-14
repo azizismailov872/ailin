@@ -6,4 +6,5 @@ return [
 	'nonePodcasts' => 'Подкастҳо нестанд',
 	'noneTrainings' => 'Тренингҳо нестанд',
 	'noneGenres' => 'Жанрҳои нест',
+	'volunteerAppCreated' => 'Дархост бомуваффақият пешниҳод карда шуд',
 ];

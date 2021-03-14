@@ -6,4 +6,5 @@ return [
 	'nonePodcasts' => 'No podcasts',
 	'noneTrainings' => 'No trainings',
 	'noneGenres' => 'No genres',
+	'volunteerAppCreated' => 'The application has been successfully submitted',
 ];

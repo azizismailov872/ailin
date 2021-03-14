@@ -6,4 +6,5 @@ return [
 	'nonePodcasts' => 'Нет подкастов',
 	'noneTrainings' => 'Нет тренингов',
 	'noneGenres' => 'Нет жанров',
+	'volunteerAppCreated' => 'Заявка успешно подана',
 ];

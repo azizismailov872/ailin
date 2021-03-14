@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Volunteer\SendRequest;
+use App\Models\VolunteerApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -55,7 +56,7 @@ class MainController extends Controller
                 'status' => 1,
             ]);
         }
-        return redirect()->route('volunteers')->withErrors(['register' => __('messages.registerAppCreated')]);
+        return redirect()->route('showVolunteers')->withErrors(['created' => __('messages.volunteerAppCreated')]);
     }
 
     public function about()

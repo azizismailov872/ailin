@@ -6,4 +6,5 @@ return [
 	'nonePodcasts' => 'Podkastlar yo‘q',
 	'noneTrainings' => 'Treninglar yo\'q',
 	'noneGenres' => 'Janrlar yo\'q',
+	'volunteerAppCreated' => 'Ariza muvaffaqiyatli topshirildi',
 ];
