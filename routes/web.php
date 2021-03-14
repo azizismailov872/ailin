@@ -121,6 +121,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function(){
 	})->where(['path' => '.*']);
 });
 
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
+
 Route::group(['middleware' => 'locale'],function(){
 	Route::get('/',[MainController::class,'default'])->name('default');
 	Route::get('/main',[MainController::class,'index'])->name('index');
