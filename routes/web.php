@@ -7,19 +7,19 @@ use App\Http\Controllers\Admin\AudioBook\Genre\AudioBookGenreController;
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\Podcast\Genre\PodcastGenreController;
 use App\Http\Controllers\Admin\Podcast\PodcastController;
+use App\Http\Controllers\Admin\Post\PostController;
 use App\Http\Controllers\Admin\RegisterApplicationController;
 use App\Http\Controllers\Admin\Training\Genre\TrainingGenreController;
 use App\Http\Controllers\Admin\Training\TrainingController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Admin\VolunteerApplicationController;
-use Illuminate\Support\Facades\Route;
-//Frontned Controllers
-use App\Http\Controllers\Main\MainController;
-use App\Http\Controllers\Auth\AuthController as LoginController;
 use App\Http\Controllers\Audiobook\AudiobookController as BookController;
+use App\Http\Controllers\Auth\AuthController as LoginController;
+use App\Http\Controllers\Main\MainController;
 use App\Http\Controllers\Podcast\PodcastController as FrontPodcastController;
-use App\Http\Controllers\Training\TrainingController as FrontTrainingController;
 use App\Http\Controllers\Profile\ProfileController;
+use App\Http\Controllers\Training\TrainingController as FrontTrainingController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +112,12 @@ Route::group(['prefix' => 'api/admin/v1/'],function(){
 	Route::post('/volunteer-applications/search',[VolunteerApplicationController::class,'search']);
 	Route::post('/volunteer-applications/create',[VolunteerApplicationController::class,'create']);
 	Route::post('/volunteer-applications/update/{id}',[VolunteerApplicationController::class,'update']);
+	//Posts
+	Route::get('/posts/list',[PostController::class,'list']);
+	Route::get('/posts/one/{id}',[PostController::class,'one']);
+	Route::get('/posts/delete/{id}',[PostController::class,'delete']);
+	Route::post('/posts/create',[PostController::class,'create']);
+	Route::post('/posts/update/{id}',[PostController::class,'update']);
 	
 });
 
