@@ -34,7 +34,11 @@ class PostController extends Controller
 
     public function create(CreateRequest $request)
     {	
-    	$data = $request->only(['title','content']);
+    	$data = $request->only([
+            'title','content','en_title','en_content',
+            'kg_title','kg_content','kz_title','kz_content',
+            'uz_title','uz_content','tg_title','tg_content'
+        ]);
 
     	$post = Post::create($data);
 
@@ -49,7 +53,11 @@ class PostController extends Controller
     {
         $post = Post::where('id',$request->id)->first();
 
-        $data = $request->only(['title','content']);
+        $data = $request->only([
+            'title','content','en_title','en_content',
+            'kg_title','kg_content','kz_title','kz_content',
+            'uz_title','uz_content','tg_title','tg_content'
+        ]);
 
         if(is_null($data['content']))
         {

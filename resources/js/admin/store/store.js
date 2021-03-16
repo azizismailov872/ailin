@@ -13,6 +13,7 @@ import { userReducer } from './users/reducer';
 import {adminUserReducer} from './adminUsers/reducer';
 import {registerAppReducer} from './registerApplications/reducer';
 import {volunteerAppReducer} from './volunteerApplications/reducer';
+import {postsReducer} from './posts/reducer';
 
 
 const reducers = combineReducers({
@@ -28,6 +29,7 @@ const reducers = combineReducers({
 	trainings: trainingReducer,
 	registerApps: registerAppReducer,
 	volunteerApps: volunteerAppReducer,
+	posts: postsReducer,
 });
 
 let store = createStore(reducers,compose(

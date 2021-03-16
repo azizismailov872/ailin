@@ -15,6 +15,8 @@ import AdminUserContainer from './views/AdminUser/AdminUserContainer';
 import RegisterAppContainer from './views/RegisterApplication/RegisterAppContainer';
 //VolunteerApp
 import VolunteerAppContainer from './views/VolunteerApplication/VolunteerAppContainer';
+//Post
+import PostContainer from './views/Post/PostContainer';
 
 
 const routes = [
@@ -184,6 +186,23 @@ const routes = [
         component: TrainingGenreContainer,
         layout: "/admin",
         visible: true,
+    },
+    //Post
+    {
+        path: "/posts/list",
+        name: "Посты",
+        icon: "ni ni-single-copy-04 text-primary",
+        component: PostContainer,
+        layout: "/admin",
+        visible: true,
+    },
+    {
+        path: "/posts",
+        name: "Посты",
+        icon: "ni ni-single-copy-04",
+        component: PostContainer,
+        layout: "/admin",
+        visible: false,
     },
 ];
 export default routes;

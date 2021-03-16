@@ -45,8 +45,18 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:6|unique:posts',
-            'content' => 'required|min:20'
+            'title' => 'required|unique:posts',
+            'en_title' => 'required|unique:posts',
+            'kg_title' => 'required|unique:posts',
+            'kz_title' => 'required|unique:posts',
+            'uz_title' => 'required|unique:posts',
+            'tg_title' => 'required|unique:posts',
+            'content' => 'required',
+            'en_content' => 'required',
+            'kg_content' => 'required',
+            'kz_content' => 'required',
+            'uz_content' => 'required',
+            'tg_content' => 'required',
         ];
     }
 
@@ -55,7 +65,13 @@ class CreateRequest extends FormRequest
         return [
             'title.required' => 'Заполните заголовок',
             'content.required' => 'Заполните содержимое статьи',
-            'title.unique' => 'Статья с таким заголовком уже существует'
+            'title.unique' => 'Статья с таким заголовком уже существует',
+            'required' => 'Заполните перевод',
+            'en_title.unique' => 'Пост с таким заголовком уже существует',
+            'kg_title.unique' => 'Пост с таким заголовком уже существует',
+            'kz_title.unique' => 'Пост с таким заголовком уже существует',
+            'uz_title.unique' => 'Пост с таким заголовком уже существует',
+            'tg_title.unique' => 'Пост с таким заголовком уже существует',
         ];
     }
 }
