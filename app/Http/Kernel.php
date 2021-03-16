@@ -55,6 +55,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'locale' => \App\Http\Middleware\Locale::class,
+        'frontAuth' => \App\Http\Middleware\Auth::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

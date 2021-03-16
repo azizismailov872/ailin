@@ -18,7 +18,13 @@ class MainController extends Controller
 
     public function index()
     {   
-    	return view('main.main');
+        if(Auth::check())
+        {
+            return view('main.main');
+        }
+        else{
+            return view('main.welcome');    
+        }	
     }
 
     public function language()

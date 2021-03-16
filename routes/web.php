@@ -131,7 +131,7 @@ Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
 
-Route::group(['middleware' => 'locale'],function(){
+Route::group(['middleware' => ['locale','frontAuth']],function(){
 	Route::get('/',[MainController::class,'default'])->name('default');
 	Route::get('/main',[MainController::class,'index'])->name('index');
 	Route::get('/about',[MainController::class,'about'])->name('about');
