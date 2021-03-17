@@ -6,11 +6,11 @@
 	<div class="container-fluid">
 		<div class="row title-page-block">
 			<div class="col-12">
-				<h1 class="display-2 title-page">ОБ AILIN</h1>
+				<h1 class="display-2 title-page text-uppercase">@lang('main.about')</h1>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-					<li class="breadcrumb-item text-uppercase"><a href="#">Главная</a></li>
-					<li class="breadcrumb-item text-uppercase active" aria-current="page">ОБ AILIN</li>
+					<li class="breadcrumb-item text-uppercase"><a href="{{route('index')}}">@lang('main.main')</a></li>
+					<li class="breadcrumb-item text-uppercase active" aria-current="page">@lang('main.about')</li>
 				  </ol>
 				</nav>
 			</div>
@@ -18,7 +18,7 @@
 		<div class="row" >
 			<div class="col-12 col-xs-12 col-sm-12 col-md-12 text-uppercase">
 				<div class="text-block col-12">
-					<h2>цель создания</h2>
+					<h2>@lang('pages.purposeOfCreation')</h2>
 						<div class="row">
 						<div class="col-1"> </div>
 						<div class="col-8 text">
@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="text-block col-12">
-					<h2>Об авторах</h2>
+					<h2>@lang('pages.authors')</h2>
 					<div class="row">
 						<div class="col-1"> </div>
 						<div class="col-8 text">

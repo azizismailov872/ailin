@@ -73,9 +73,4 @@ class MainController extends Controller
     {
         return view('main.about');
     }
-
-    public function welcome()
-    {
-        return view('main.welcome');
-    }
 }

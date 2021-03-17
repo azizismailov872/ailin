@@ -11,4 +11,6 @@ return [
 	'ailinHelp' => 'Ailin platformasi palatalariga qanday yordam ko\'rsatilishi mumkin',
 	'groupHelp' => 'Professionallardan guruhli va individual psixologik yordam',
 	'studyMaterialHelp' => 'Materialni o\'zlashtirishga yordam berish',
+	'purposeOfCreation' => 'Yaratilish maqsadi',
+	'authors' => 'Mualliflar',
 ];
