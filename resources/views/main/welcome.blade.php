@@ -8,7 +8,7 @@
 		<div class="row">
 			<div class="col-6 col-xs-12 col-md-6 col-sm-12">
 				<div class="col-12">
-					<h1 class="heading">ОБ AILIN</h1>
+					<h1 class="heading">@lang('main.about')</h1>
 				</div>
 				<br>
 				<div class="col-8 col-md-8 col-sm-12 col-xs-12">
@@ -34,32 +34,18 @@
 					<h1 class="heading">СТАТЬИ</h1>
 				</div>
 				<br>
-				<div>
-					<a href="#">
-						<h5 class="title-news-welcome">Trump and Biden race</h5>
-					<div class="desc-welcome">
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
-					</div>
-					</a>
-				</div>
-				<div>
-					<a href="#">
-						<h5 class="title-news-welcome">Trump and Biden race</h5>
-					<div class="desc-welcome">
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
-					</div>
-					</a>
-				</div>
-				<div>
-					<a href="#">
-						<h5 class="title-news-welcome">Trump and Biden race</h5>
-					<div class="desc-welcome">
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
-					</div>
-					</a>
-				</div>
-
-				<br>
+				@if(!is_null($posts))
+					@foreach($posts as $post)
+						<div>
+							<a href="#">
+								<h5 class="title-news-welcome">{{mb_substr($post->getTitle(),0,25)}}...</h5>
+								<div class="desc-welcome">
+									{{mb_substr($post->getContent(),0,100)}}...
+								</div>
+							</a>
+						</div>
+					@endforeach
+				@endif
 			</div>
 			<div class="col-6 col-xs-12 col-md-6 col-sm-12">
 				<nav class="nav main-nav flex-column">

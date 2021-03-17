@@ -17,7 +17,8 @@ class Auth
      */
     public function handle(Request $request, Closure $next)
     {  
-        if($request->path() == 'main' || $request->path() == 'language')
+        $paths = ['main','language','login','logout'];
+        if(in_array($request->path(),$paths) || $request->is('set-language/*'))
         {
             return $next($request);
         }

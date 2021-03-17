@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Volunteer\SendRequest;
+use App\Models\Post\Post;
 use App\Models\VolunteerApplication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -22,8 +23,11 @@ class MainController extends Controller
         {
             return view('main.main');
         }
-        else{
-            return view('main.welcome');    
+        else
+        {   
+            $posts = Post::orderByDesc('created_at')->take(4)->get();
+
+            return view('main.welcome',compact('posts'));    
         }	
     }
 
