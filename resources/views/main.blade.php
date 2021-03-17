@@ -15,11 +15,11 @@
 	<link rel="stylesheet" href="{{asset('frontend/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 	<link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
 	<script src="{{asset('js/frontend/jquery-3.5.1.min.js')}}"></script>
-	<script>
+	{{-- <script>
 		document.getElementById('reg-button-1').onclick = function() {
 		  document.getElementById('reg-block-1').classList.toggle('hidden');
 		}
-	</script>
+	</script> --}}
 	<script src="{{asset('js/frontend/playerjs.js')}}" type="text/javascript"></script>
 	<script type="text/javascript">
 		var mas = []

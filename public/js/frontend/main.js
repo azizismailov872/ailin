@@ -8,7 +8,7 @@ $(function(){
 		}
 	});
 
-	$('.carousel-link').on('click',function(e){
+	$('.carousel-link.next').on('click',function(e){
 		e.preventDefault();
 		let url = $(this).attr('href');
 		$.ajax({
@@ -18,7 +18,26 @@ $(function(){
             success: function(response) {
                 $('body').html(response);
                 window.history.pushState({},null,url);
-                speak(getPaginationMessage());
+                speak(getNextPageMessage());
+            },
+            error: function(response)
+            {
+            	console.log('error ',response);
+            }
+        });
+	});
+
+	$('.carousel-link.prev').on('click',function(e){
+		e.preventDefault();
+		let url = $(this).attr('href');
+		$.ajax({
+            url: url,
+            data:"",
+            type:"GET",
+            success: function(response) {
+                $('body').html(response);
+                window.history.pushState({},null,url);
+                speak(getPrevPageMessage());
             },
             error: function(response)
             {
@@ -51,7 +70,7 @@ function getLang()
 
 }
 
-function getPaginationMessage()
+function getNextPageMessage()
 {
 	let language = $('html').attr('lang');
 
@@ -81,9 +100,43 @@ function getPaginationMessage()
 	}
 }
 
+function getPrevPageMessage()
+{
+	let language = $('html').attr('lang');
+
+	if(language === 'en')
+	{
+		return 'Previous page';
+	}
+	else if(language === 'ru')
+	{
+		return 'Предыдущая страница';
+	}
+	else if(language === 'kz')
+	{
+		return 'Алдыңғы бет';
+	}
+	else if(language === 'uz')
+	{
+		return 'Oldingi sahifa';
+	}
+	else if(language === 'kg')
+	{
+		return 'Мурунку бет';
+	}
+	else if(language === 'tg')
+	{
+		return 'Саҳифаи қаблӣ';
+	}
+}
+
 function speak(text) {
-	const message = new SpeechSynthesisUtterance();
-  	message.lang = getLang();
-  	message.text = text;
-  	window.speechSynthesis.speak(message);
+	let msg = new SpeechSynthesisUtterance();
+	msg.voiceURI = 'native';
+	msg.volume = 1;
+	msg.rate = 0.8;
+	msg.pitch = 1;
+	msg.text = text;
+	msg.lang = getLang(); // Язык
+	speechSynthesis.speak(msg);
 }

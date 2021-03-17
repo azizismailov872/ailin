@@ -30,9 +30,9 @@
 				<div class="col-12 genres-wrap">
 					<div class="row">
 						<div id="myCarousel" data-bs-interval="false" class="carousel slide carousel-dark" data-bs-ride="carousel">
-							@if(isset($list->lastPage) && $list->lastPage() > 1)
+							@if(isset($list) && $list->lastPage() > 1)
 								<div class="col-2">
-									<a class="carousel-control-prev carousel-link" tabindex="0" href="{{$list->previousPageUrl()}}" role="button" data-bs-slide="prev">
+									<a class="carousel-control-prev carousel-link prev" tabindex="0" href="{{$list->previousPageUrl()}}" role="button" data-bs-slide="prev">
 											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 											<span class="visually-hidden">Previous</span>
 									</a>
@@ -53,9 +53,9 @@
 									@endif
 								</div>
 							</div>
-							@if(isset($list->lastPage) && $list->lastPage() > 1)
+							@if(isset($list) && $list->lastPage() > 1)
 								<div class="col-2">
-									<a class="carousel-control-next carousel-link" tabindex="0" href="{{$list->nextPageUrl()}}" role="button" data-bs-slide="next">
+									<a class="carousel-control-next carousel-link next" tabindex="0" href="{{$list->nextPageUrl()}}" role="button" data-bs-slide="next">
 										<span class="carousel-control-next-icon" aria-hidden="true"></span>
 										<span class="visually-hidden">Следующее</span>
 									</a>

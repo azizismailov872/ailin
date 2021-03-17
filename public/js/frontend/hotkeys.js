@@ -32,6 +32,51 @@ $(document).keydown(function(e) {
     $('.nav-button').click();
     $('.nav-button').focus();
   }
+
+    if (keys[18] && keys[39]) 
+    {   
+        let nextUrl = $('.carousel-link.next').attr('href');
+        if(nextUrl && nextUrl !== null && nextUrl !== undefined)
+        {
+            $.ajax({
+                url: nextUrl,
+                data:"",
+                type:"GET",
+                success: function(response) {
+                    $('body').html(response);
+                    window.history.pushState({},null,nextUrl);
+                    speak(getNextPageMessage());
+                },
+                error: function(response)
+                {
+                    console.log('error ',response);
+                }
+            });
+        }
+    }
+
+    if (keys[18] && keys[37]) 
+        {   
+            let prevUrl = $('.carousel-link.prev').attr('href');
+            if(prevUrl && prevUrl !== null && prevUrl !== undefined)
+            {
+                $.ajax({
+                    url: prevUrl,
+                    data:"",
+                    type:"GET",
+                    success: function(response) {
+                        $('body').html(response);
+                        window.history.pushState({},null,prevUrl);
+                        speak(getPrevPageMessage());
+                    },
+                    error: function(response)
+                    {
+                        console.log('error ',response);
+                    }
+                });
+            }
+        }
+
   // 5 и 6 не известно что перелистывать
   // с 1 по 4 все это есть в браузере 
 });
@@ -39,3 +84,4 @@ $(document).keydown(function(e) {
 $(document).keyup(function(e) {
   delete keys[e.which];
 });
+

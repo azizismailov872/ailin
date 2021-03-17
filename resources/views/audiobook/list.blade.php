@@ -29,10 +29,12 @@
 						<div class="row">
 							<div id="myCarousel" data-bs-interval="false" class="carousel slide carousel-dark" data-bs-ride="carousel">
 								<div class="col-2">
-									<a class="carousel-control-prev carousel-link" tabindex="0" href="{{$list->previousPageUrl()}}" role="button" data-bs-slide="prev">
-											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-											<span class="visually-hidden">Previous</span>
-									</a>
+									@if(isset($list) && $list->lastPage() > 1)
+										<a class="carousel-control-prev carousel-link prev" tabindex="0" href="{{$list->previousPageUrl()}}" role="button" data-bs-slide="prev">
+												<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+												<span class="visually-hidden">Previous</span>
+										</a>
+									@endif
 								</div>
 								<div class="carousel-inner">
 								    <div class="carousel-item active">
@@ -44,10 +46,12 @@
 								    </div>
 							  	</div>
 								<div class="col-2">
-								  	<a class="carousel-control-next carousel-link" tabindex="0" href="{{$list->nextPageUrl()}}" role="button" data-bs-slide="next">
+									@if(isset($list) && $list->lastPage() > 1)
+									<a class="carousel-control-next carousel-link next" tabindex="0" href="{{$list->nextPageUrl()}}" role="button" data-bs-slide="next">
 								    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
 								    	<span class="visually-hidden">Следующее</span>
 								  	</a>
+									@endif
 								</div>
 							</div>
 						</div>
