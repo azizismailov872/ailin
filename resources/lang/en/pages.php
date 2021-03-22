@@ -12,4 +12,6 @@ return [
 	'studyMaterialHelp' => 'Assisting in the assimilation of the material',
 	'purposeOfCreation' => 'Purpose of creation',
 	'authors' => 'About authors',
+	'aboutBlind' => 'About the life of the blind',
+	'aboutPlatform' => 'About the platform',
 ];

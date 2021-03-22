@@ -1282,10 +1282,23 @@ button.player_play_button.stop-icon {
     margin-left: -1.5em;
 }
 
-
 .book-page h3 {
 	font-size: var(--default-fs);
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
 	font-weight: 600;
+}
+
+hr {
+	width: 20%;
+	height: 4px !important;
+	background-color: #000;
+	opacity: 1;
+	margin: 30px 0;
+}
+.welcome-nav {
+	margin-top: 40px;
+}
+.welcome-nav .nav-link {
+	padding-left: 0;
 }

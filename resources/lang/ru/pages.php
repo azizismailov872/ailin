@@ -14,4 +14,6 @@ return [
 	'studyMaterialHelp' => 'Оказание помощи в усвоении материала',
 	'purposeOfCreation' => 'Цель создания',
 	'authors' => 'Об авторах',
+	'aboutBlind' => 'О жизни незрячих',
+	'aboutPlatform' => 'О платформе',
 ];

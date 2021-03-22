@@ -14,4 +14,6 @@ return [
 	'studyMaterialHelp' => 'Мусоидат дар азхудкунии мавод',
 	'purposeOfCreation' => 'Мақсади офариниш',
 	'authors' => 'Муаллифон',
+	'aboutBlind' => 'Дар бораи зиндагии нобиноен',
+	'aboutPlatform' => 'Дар бораи платформаи',
 ];

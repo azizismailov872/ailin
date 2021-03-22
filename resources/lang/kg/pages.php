@@ -13,4 +13,6 @@ return [
 	'studyMaterialHelp' => 'Материалды өздөштүрүүгө жардам берүү',
 	'purposeOfCreation' => 'Жаратуунун максаты',
 	'authors' => 'Авторлар жөнүндө',
+	'aboutBlind' => 'Сокур өмүр жөнүндө',
+	'aboutPlatform' => 'Платформа жөнүндө',
 ];
