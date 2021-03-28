@@ -140,6 +140,7 @@ Route::group(['middleware' => ['locale','frontAuth']],function(){
 	Route::get('/volunteers',[MainController::class,'showVolunteers'])->name('showVolunteers');
 	Route::get('/set-language/{lang}',[MainController::class,'setLanguage'])->name('setLang');
 	Route::post('/volunteers',[MainController::class,'volunteers'])->name('volunteers');
+	Route::get('/posts',[MainController::class,'posts'])->name('posts');
 	//Auth
 	Route::get('/login',[LoginController::class,'showLogin'])->name('showLogin');
 	Route::post('/login',[LoginController::class,'login'])->name('login');

@@ -29,5 +29,7 @@ return [
 	'register' => 'Belgilanish',
 	'videoFormat' => 'Video formati',
 	'video' => 'Video',
-	'submit' => 'Xabar yuboring',	
+	'submit' => 'Xabar yuboring',
+	'posts' => 'Yangiliklar',
+	'post' => 'Xabar',	
 ];

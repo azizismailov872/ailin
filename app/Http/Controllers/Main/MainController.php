@@ -18,17 +18,8 @@ class MainController extends Controller
     }
 
     public function index()
-    {   
-        if(Auth::check())
-        {
-            return view('main.main');
-        }
-        else
-        {   
-            $posts = Post::orderByDesc('created_at')->take(4)->get();
-
-            return view('main.welcome',compact('posts'));    
-        }	
+    {   	
+        return (Auth::check()) ? view('main.main') : view('main.welcome');
     }
 
     public function language()
@@ -67,6 +58,14 @@ class MainController extends Controller
             ]);
         }
         return redirect()->route('showVolunteers')->withErrors(['created' => __('messages.volunteerAppCreated')]);
+    }
+
+    public function posts()
+    {   
+
+        $posts = Post::orderByDesc('created_at')->take(5)->get();
+
+        return view('main.posts',compact('posts'));
     }
 
     public function about()

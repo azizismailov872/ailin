@@ -32,6 +32,9 @@
 	   		<a class="text-uppercase" aria-label="@lang('main.volunteers')" href="{{route('showVolunteers')}}">@lang('main.volunteers')</a>
 	   	</li>
 	   	<li>
+	   		<a class="text-uppercase" aria-label="@lang('main.posts')" href="{{route('posts')}}">@lang('main.posts')</a>
+	   	</li>
+	   	<li>
 	   		<a class="text-uppercase" aria-label="@lang('main.about')" href="{{route('about')}}">@lang('main.about')</a>
 	   	</li>
 	</ul>

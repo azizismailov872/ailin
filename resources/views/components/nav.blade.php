@@ -16,7 +16,7 @@
 	<a class="nav-link color-black text-uppercase" href="{{route('showLogin')}}">@lang('main.login')</a>
 	<a class="nav-link color-black text-uppercase" href="{{route('language')}}">@lang('main.changeLocale')</a>
 	<div class="navbar-brand" id="navbarsExampleDefault">
-		<a class="navbar-brand" href="{{route('index')}}"><img src="images/logo.jpg" class="nav-logo" alt="" loading="lazy">AILIN</a>
+		<a class="navbar-brand" href="{{route('index')}}"><img src="{{asset('frontend/images/logo.jpg')}}" class="nav-logo" alt="" loading="lazy">AILIN</a>
 	</div>
 </nav>
 @endguest

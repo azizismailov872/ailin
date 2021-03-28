@@ -31,4 +31,6 @@ return [
 	'videoFormat' => 'Video format',
 	'video' => 'Video',
 	'submit' => 'Sibmit',
+	'posts' => 'Posts',
+	'post' => 'Post',
 ];
