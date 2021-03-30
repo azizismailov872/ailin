@@ -53,15 +53,19 @@ class TrainingController extends Controller
                 $start = $history->getTime();
             }
 
-            $videoHistory = Auth::user()->histories()->where([
-                'historyable_type' => TrainingVideo::class,
-                'historyable_id' => $model->video->id
-            ])->first();
-
-            if(!is_null($videoHistory) && !empty($videoHistory))
+            if(!is_null($model->video) && !empty($model->video))
             {
-                $videoStart = $videoHistory->getTime();
+                $videoHistory = Auth::user()->histories()->where([
+                    'historyable_type' => TrainingVideo::class,
+                    'historyable_id' => $model->video->id
+                ])->first();
+
+                if(!is_null($videoHistory) && !empty($videoHistory))
+                {
+                    $videoStart = $videoHistory->getTime();
+                }
             }
+            
         }
 
         if(!is_null($model) && !empty($model))
