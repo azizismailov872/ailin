@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Volunteer\SendRequest;
+use App\Models\History\History;
 use App\Models\Post\Post;
 use App\Models\VolunteerApplication;
 use Illuminate\Http\Request;
@@ -58,6 +59,13 @@ class MainController extends Controller
             ]);
         }
         return redirect()->route('showVolunteers')->withErrors(['created' => __('messages.volunteerAppCreated')]);
+    }
+
+    public function clearHistory()
+    {
+        History::truncate();
+
+        return response('Таблица успешно очищена',200);
     }
 
     public function posts()
